@@ -13,11 +13,20 @@
     "eslint": "8.6.0",
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "8.3.0",
+    "husky": "7.0.0",
+    "lint-staged": "12.1.5",
     "prettier": "2.5.1",
     "typescript": "4.5.4",
     "vite": "2.7.10"
   },
   "license": "MIT",
+  "lint-staged": {
+    "gitDir": "../",
+    "*.{ts,tsx}": [
+      "npm run lint:js",
+      "npm run fmt"
+    ]
+  },
   "private": true,
   "scripts": {
     "dev": "vite",
