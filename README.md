@@ -1,2 +1,5 @@
-# ddd-snippet
-Tactical DDD snippet
+# Tactical DDD snippet
+
+---
+
+container component に実装していたロジックは、カスタムフックに書くことになる

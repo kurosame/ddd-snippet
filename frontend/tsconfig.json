@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react",
+    "sourceMap": true,
+    "importsNotUsedAsValues": "error",
+    "isolatedModules": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": { "@/*": ["src/*"] },
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}
