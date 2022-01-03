@@ -21,7 +21,6 @@
   },
   "license": "MIT",
   "lint-staged": {
-    "gitDir": "../",
     "*.{ts,tsx}": [
       "npm run lint:js",
       "npm run fmt"
