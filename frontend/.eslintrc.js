@@ -3,10 +3,14 @@ module.exports = {
   extends: ['airbnb', 'airbnb/hooks', 'plugin:@typescript-eslint/recommended', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaFeatures: { jsx: true } },
-  settings: { react: { version: 'detect' } },
+  settings: {
+    'import/resolver': {
+      typescript: { project: './' }
+    },
+    react: { version: 'detect' }
+  },
   rules: {
     'import/extensions': ['error', 'ignorePackages', { ts: 'never', tsx: 'never' }],
-    'import/prefer-default-export': 'off',
     'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
     'react/function-component-definition': [
       'error',
