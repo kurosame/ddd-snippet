@@ -1,4 +1,5 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { TextInput } from './components/atoms/TextInput' // eslint-disable-line
 
-render(<div>aaa</div>, document.getElementById('root'))
+render(<TextInput />, document.getElementById('root'))
