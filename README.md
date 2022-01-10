@@ -1,1 +1,6 @@
-# Tactical DDD + Atomic Design
+# Tactical DDD snippet
+
+## frontend_1
+
+- Atomic Design
+- Tactical DDD
