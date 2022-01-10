@@ -2,6 +2,6 @@
 # Run `npx husky-init` to create husky.sh
 . "$(dirname "$0")/_/husky.sh"
 
-cd frontend
+cd frontend_1
 ./node_modules/.bin/tsc -p ./ --noEmit
 ./node_modules/.bin/lint-staged
