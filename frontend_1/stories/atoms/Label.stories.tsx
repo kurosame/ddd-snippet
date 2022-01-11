@@ -5,4 +5,4 @@ export default {
   title: 'atoms'
 }
 
-export const Label = (): JSX.Element => <App text="ラベル" />
+export const Label = (): JSX.Element => <App>ラベル</App>

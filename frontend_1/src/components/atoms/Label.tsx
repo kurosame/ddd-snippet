@@ -1,9 +1,9 @@
 import React from 'react'
 
 type Props = {
-  text: string
+  children: React.ReactNode
 }
 
-const Label: React.VFC<Props> = ({ text }) => <span>{text}</span>
+const Label: React.VFC<Props> = ({ children }) => <span>{children}</span>
 
 export default Label
