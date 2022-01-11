@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = {
   value: string
-  onChange: (value: string) => void
+  onChange: (v: string) => void
 }
 
 const TextInput: React.VFC<Props> = ({ value, onChange }) => (

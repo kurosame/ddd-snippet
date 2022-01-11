@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import App from '@/components/molecules/LabeledTextInput'
 
 export default {
   title: 'molecules'
 }
 
-export const LabeledTextInput = (): JSX.Element => <App />
+export const LabeledTextInput = (): JSX.Element => {
+  const [value, setValue] = useState('default')
+
+  return <App label="ラベル" value={value} onChange={v => setValue(v)} />
+}
