@@ -5,10 +5,8 @@ type Props = {
   children: React.ReactNode
 }
 
-const Button: React.VFC<Props> = ({ onClick, children }) => (
+export const Button: React.VFC<Props> = ({ onClick, children }) => (
   <button type="button" onClick={() => onClick()}>
     {children}
   </button>
 )
-
-export default Button

@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Employee from './components/organisms/Employee'
+import { Employee } from './components/organisms/Employee'
 
 class RootComponent extends React.Component {
   public componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {

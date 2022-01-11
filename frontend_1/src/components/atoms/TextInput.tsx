@@ -5,8 +5,6 @@ type Props = {
   onChange: (v: string) => void
 }
 
-const TextInput: React.VFC<Props> = ({ value, onChange }) => (
+export const TextInput: React.VFC<Props> = ({ value, onChange }) => (
   <input type="text" value={value} onChange={e => onChange(e.target.value)} />
 )
-
-export default TextInput

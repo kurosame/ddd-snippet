@@ -1,5 +1,5 @@
 import React from 'react'
-import App from '@/components/organisms/Employee'
+import { Employee as App } from '@/components/organisms/Employee'
 
 export default {
   title: 'organisms'

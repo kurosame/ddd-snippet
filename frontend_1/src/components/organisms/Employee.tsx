@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import updateEmployee from '@/application/employee/usecase'
-import Button from '@/components/atoms/Button'
-import LabeledTextInput from '@/components/molecules/LabeledTextInput'
-import EmployeeEntity from '@/domain/entities/Employee'
+import { updateEmployee } from '@/application/employee/usecase'
+import { Button } from '@/components/atoms/Button'
+import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
+import { Employee as EmployeeEntity } from '@/domain/entities/Employee'
 
-const Employee: React.VFC = () => {
+export const Employee: React.VFC = () => {
   const [employeeId, setEmployeeId] = useState('')
 
   const handleClick = () => {
@@ -22,5 +22,3 @@ const Employee: React.VFC = () => {
     </>
   )
 }
-
-export default Employee

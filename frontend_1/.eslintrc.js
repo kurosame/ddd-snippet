@@ -11,6 +11,7 @@ module.exports = {
   },
   rules: {
     'import/extensions': ['error', 'ignorePackages', { ts: 'never', tsx: 'never' }],
+    'import/prefer-default-export': 'off',
     'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
     'react/function-component-definition': [
       'error',

@@ -1,6 +1,6 @@
-import EmployeeId from '@/domain/values/EmployeeId'
+import { EmployeeId } from '@/domain/values/EmployeeId'
 
-export default class Employee {
+export class Employee {
   public readonly employeeId: EmployeeId
 
   public constructor(employeeId: string) {

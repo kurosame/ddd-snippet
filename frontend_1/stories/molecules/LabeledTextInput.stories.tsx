@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import App from '@/components/molecules/LabeledTextInput'
+import { LabeledTextInput as App } from '@/components/molecules/LabeledTextInput'
 
 export default {
   title: 'molecules'

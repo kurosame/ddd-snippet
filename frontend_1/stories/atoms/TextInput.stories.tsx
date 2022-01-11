@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import App from '@/components/atoms/TextInput'
+import { TextInput as App } from '@/components/atoms/TextInput'
 
 export default {
   title: 'atoms'

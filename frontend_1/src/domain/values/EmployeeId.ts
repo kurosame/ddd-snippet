@@ -1,4 +1,4 @@
-export default class EmployeeId {
+export class EmployeeId {
   public readonly id: string
 
   public constructor(id: string) {
