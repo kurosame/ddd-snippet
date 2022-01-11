@@ -5,4 +5,4 @@ export default {
   title: 'atoms'
 }
 
-export const Button = (): JSX.Element => <App name="ボタン" />
+export const Button = (): JSX.Element => <App onClick={() => console.info('clicked')}>ボタン</App>
