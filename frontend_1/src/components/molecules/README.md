@@ -1,6 +1,6 @@
 # `components/molecules`
 
-- 他の atoms や molecules の UI コンポーネントを組み立てて、役割を持たせる
+- atoms/molecules の UI コンポーネントを結合し、役割を持たせる
   - ただし、単一責任の原則であること
 - ローカルステートは基本的に持たない
 - コンテキストに依存しない
