@@ -1,5 +1,9 @@
 import React from 'react'
 
-const Button: React.VFC = () => <button type="button">aa</button>
+type Props = {
+  name: string
+}
+
+const Button: React.VFC<Props> = ({ name }) => <button type="button">{name}</button>
 
 export default Button

@@ -5,4 +5,4 @@ export default {
   title: 'atoms'
 }
 
-export const Button = (): JSX.Element => <App />
+export const Button = (): JSX.Element => <App name="ボタン" />
