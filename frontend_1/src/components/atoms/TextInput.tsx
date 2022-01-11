@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const TextInput: React.VFC = () => {
-  const [value, setValue] = useState('')
-
-  return <input type="text" value={value} onChange={e => setValue(e.target.value)} />
+type Props = {
+  value: string
+  onChange: (value: string) => void
 }
+
+const TextInput: React.VFC<Props> = ({ value, onChange }) => (
+  <input type="text" value={value} onChange={e => onChange(e.target.value)} />
+)
 
 export default TextInput
