@@ -19,7 +19,8 @@ module.exports = {
         unnamedComponents: 'arrow-function'
       }
     ],
-    'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }]
+    'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
+    'react/prop-types': 'off' // This is checked by TypeScript
   },
   ignorePatterns: ['vite.config.ts']
 }

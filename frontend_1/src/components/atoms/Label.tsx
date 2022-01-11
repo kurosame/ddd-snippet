@@ -1,5 +1,9 @@
 import React from 'react'
 
-const Label: React.VFC = () => <span>aa</span>
+type Props = {
+  text: string
+}
+
+const Label: React.VFC<Props> = ({ text }) => <span>{text}</span>
 
 export default Label
