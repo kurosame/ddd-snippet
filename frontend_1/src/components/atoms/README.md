@@ -1,5 +1,9 @@
 # `components/atoms`
 
+Atomic Design の Atoms
+
+## 実装方針
+
 - 最小粒度の UI コンポーネント
   - 要素の分割がこれ以上できない
 - atoms 単体ではどういう意味を持つか分からない
