@@ -1,12 +1,9 @@
 export class EmployeeId {
-  readonly #id: string
+  public readonly id: string
 
   public constructor(id: string) {
-    this.#id = id
-  }
-
-  public validate() {
-    if (!['a', 'b', 's'].some(s => this.#id.toLowerCase().startsWith(s)))
+    if (!['a', 'b', 's'].some(s => id.toLowerCase().startsWith(s)))
       throw new Error('社員IDの先頭は A, B, S のいずれかを指定してください')
+    this.id = id
   }
 }
