@@ -4,7 +4,7 @@ Domain Service
 
 ## 概要
 
-- Domain Service は VO や Entity に実装すると不自然なふるまい（関数）を保持するドメインオブジェクトである
+- Domain Service は VO や Entity に実装すると不自然となるふるまい（関数）を保持するドメインオブジェクトである
 
 ## 実装方針
 
@@ -16,6 +16,11 @@ Domain Service
 - 必要に応じて、Domain Service のインターフェイスを作成してよい
   - インターフェイスはドメイン内に置き、Service の実装はドメイン外に置き、分離して管理するほうがよい（セパレートインターフェイス）
     - これによって、クライアントも実装もインターフェイスに依存させることができる
+- 関数は static で宣言する
+  ```ts
+  public static isExists() {}
+  ```
+  - 特定の Domain Service に属する関数というのを強調するため
 
 ## Application Service との責務の違い
 
