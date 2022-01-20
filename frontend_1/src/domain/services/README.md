@@ -13,14 +13,14 @@ Domain Service
 - 可能な限り、Domain Service ではなく VO や Entity で実装することを考える
   - ドメインモデル貧血症を避ける
 - 必要に応じて、Repository を利用してよい
+  - Repository は実装をコンストラクター経由で DI する必要があるので、Repository の実装のインスタンス（型はインターフェイス）を属性に持ってよい
+  - Repository は private と readonly で宣言する
+    ```ts
+    readonly #employeeRepository: EmployeeRepository
+    ```
 - 必要に応じて、Domain Service のインターフェイスを作成してよい
   - インターフェイスはドメイン内に置き、Service の実装はドメイン外に置き、分離して管理するほうがよい（セパレートインターフェイス）
     - これによって、クライアントも実装もインターフェイスに依存させることができる
-- 関数は static で宣言する
-  ```ts
-  public static isExists() {}
-  ```
-  - 特定の Domain Service に属する関数というのを強調するため
 
 ## Application Service との責務の違い
 

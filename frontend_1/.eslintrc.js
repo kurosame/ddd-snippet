@@ -10,6 +10,7 @@ module.exports = {
     react: { version: 'detect' }
   },
   rules: {
+    'class-methods-use-this': 'off',
     'import/extensions': ['error', 'ignorePackages', { ts: 'never', tsx: 'never' }],
     'import/prefer-default-export': 'off',
     'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
