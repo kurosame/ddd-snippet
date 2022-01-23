@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
+import { EmployeeUpdateCommand } from '@/application/employee/command/EmployeeUpdateCommand'
 import { updateEmployee } from '@/application/employee/usecase'
 import { Button } from '@/components/atoms/Button'
 import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
-import { Employee as EmployeeEntity } from '@/domain/entities/Employee'
 
 export const Employee: React.VFC = () => {
   const [employeeId, setEmployeeId] = useState('')
 
   const handleClick = () => {
     try {
-      updateEmployee(new EmployeeEntity(employeeId))
+      updateEmployee(new EmployeeUpdateCommand(employeeId))
     } catch (e) {
       console.error({ 'event-handler-error': e })
     }
