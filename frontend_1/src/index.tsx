@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import { SWRConfig } from 'swr'
 import { Employee } from './components/organisms/Employee'
 
 if (process.env.NODE_ENV === 'development') {
@@ -12,7 +13,19 @@ class RootComponent extends React.Component {
   }
 
   public render() {
-    return <Employee />
+    return (
+      <SWRConfig
+        value={{
+          onErrorRetry: (error, _key, _config, revalidate, { retryCount }) => {
+            if (error.status === 404) return
+            if (retryCount >= 5) return
+            setTimeout(() => revalidate({ retryCount: retryCount + 1 }), 5000)
+          }
+        }}
+      >
+        <Employee />
+      </SWRConfig>
+    )
   }
 }
 

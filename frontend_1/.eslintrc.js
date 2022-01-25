@@ -13,6 +13,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'import/extensions': ['error', 'ignorePackages', { ts: 'never', tsx: 'never' }],
     'import/prefer-default-export': 'off',
+    'lines-between-class-members': 'off',
     'no-console': ['error', { allow: ['info', 'warn', 'error'] }],
     'react/function-component-definition': [
       'error',

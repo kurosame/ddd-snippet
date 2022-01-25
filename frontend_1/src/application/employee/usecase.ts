@@ -3,9 +3,12 @@ import { Employee } from '@/domain/entities/Employee'
 import { EmployeeService } from '@/domain/services/EmployeeService'
 import { ApiEmployeeRepository } from '@/infrastructure/api/ApiEmployeeRepository'
 
-export const updateEmployee = (command: EmployeeUpdateCommand) => {
-  const apiEmployeeRepository = new ApiEmployeeRepository()
+export const updateEmployee = async (command: EmployeeUpdateCommand): Promise<void> => {
+  const apiEmployeeRepository = new ApiEmployeeRepository(command.mutate)
   const employeeService = new EmployeeService(apiEmployeeRepository)
   const employeeEntity = new Employee(command.employeeId)
-  employeeService.isExists(employeeEntity)
+
+  const res = await employeeService.isExists(employeeEntity)
+  if (res) throw new Error('この社員はすでに登録済みです')
+  // TODO:POST処理
 }

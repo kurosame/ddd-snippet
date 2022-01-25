@@ -8,7 +8,8 @@ export class EmployeeService {
     this.#employeeRepository = employeeRepository
   }
 
-  public isExists(employee: Employee) {
-    this.#employeeRepository.find(employee.employeeId)
+  public async isExists(employee: Employee): Promise<boolean> {
+    const res = await this.#employeeRepository.find(employee.employeeId)
+    return !!res
   }
 }

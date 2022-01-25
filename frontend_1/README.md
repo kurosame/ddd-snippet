@@ -7,5 +7,7 @@
 
 - React
 - TypeScript
+- SWR
+- MSW（Mock Service Worker）
 - Storybook
 - Vite
