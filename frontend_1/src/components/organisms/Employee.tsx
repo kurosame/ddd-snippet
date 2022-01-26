@@ -7,10 +7,10 @@ import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
 
 export const Employee: React.VFC = () => {
   const [employeeId, setEmployeeId] = useState('')
-  const { mutate } = useSWRConfig()
+  const { cache, mutate } = useSWRConfig()
 
   const handleClick = () => {
-    updateEmployee(new EmployeeUpdateCommand(employeeId, mutate)).catch(e => {
+    updateEmployee(new EmployeeUpdateCommand(employeeId, cache, mutate)).catch(e => {
       console.error({ 'event-handler-error': e })
     })
   }

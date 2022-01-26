@@ -4,7 +4,7 @@ import { EmployeeService } from '@/domain/services/EmployeeService'
 import { ApiEmployeeRepository } from '@/infrastructure/api/ApiEmployeeRepository'
 
 export const updateEmployee = async (command: EmployeeUpdateCommand): Promise<void> => {
-  const apiEmployeeRepository = new ApiEmployeeRepository(command.mutate)
+  const apiEmployeeRepository = new ApiEmployeeRepository(command.cache, command.mutate)
   const employeeService = new EmployeeService(apiEmployeeRepository)
   const employeeEntity = new Employee(command.employeeId)
 
