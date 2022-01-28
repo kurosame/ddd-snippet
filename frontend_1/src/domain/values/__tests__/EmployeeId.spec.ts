@@ -2,7 +2,7 @@ import { EmployeeId } from '@/domain/values/EmployeeId'
 
 describe('constructor', () => {
   test('create a vo', () => {
-    expect(new EmployeeId('aaa').id).toBe('aaa')
+    expect(new EmployeeId('aaa')).toEqual({ id: 'aaa' })
   })
 
   test('given an invalid employee id', () => {

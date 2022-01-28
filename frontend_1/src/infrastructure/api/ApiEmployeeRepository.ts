@@ -27,4 +27,12 @@ export class ApiEmployeeRepository implements EmployeeRepository {
       ))
     return res && new Employee(res.employee_id)
   }
+
+  public async findAll(): Promise<Employee[]> {
+    const url = '/api/employee'
+    const res =
+      this.cache.get<ApiEmployeeResponse[]>(url) ??
+      (await this.mutate<ApiEmployeeResponse[]>(url, fetcher(url, { method: 'GET' })))
+    return res.map(r => new Employee(r.employee_id))
+  }
 }
