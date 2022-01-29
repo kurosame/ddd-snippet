@@ -1,5 +1,5 @@
-import { Employee } from '@/domain/entities/Employee'
 import { EmployeeService } from '@/domain/services/EmployeeService'
+import { EmployeeId } from '@/domain/values/EmployeeId'
 import { ApiEmployeeRepository } from '@/infrastructure/api/ApiEmployeeRepository'
 import { mockCache, mockMutate } from '@/infrastructure/api/MockRepository'
 
@@ -14,14 +14,14 @@ describe('isExists', () => {
   test('employee is exists', async () => {
     const rep = new ApiEmployeeRepository(cache, mutate)
     const service = new EmployeeService(rep)
-    const res = await service.isExists(new Employee('A000'))
+    const res = await service.isExists(new EmployeeId('A000'))
     expect(res).toBeTruthy()
   })
 
   test('employee is not exists', async () => {
     const rep = new ApiEmployeeRepository(cache, mutate)
     const service = new EmployeeService(rep)
-    const res = await service.isExists(new Employee('B000'))
+    const res = await service.isExists(new EmployeeId('B000'))
     expect(res).toBeFalsy()
   })
 })

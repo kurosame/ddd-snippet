@@ -25,7 +25,7 @@ export class ApiEmployeeRepository implements EmployeeRepository {
       (await this.mutate<ApiEmployeeResponse | Record<never, never>>(url, fetcher(url, { method: 'GET' })).then(r =>
         isHaveResponse(r) ? r : null
       ))
-    return res && new Employee(res.employee_id)
+    return res && new Employee(res.employee_id, res.employee_name)
   }
 
   public async findAll(): Promise<Employee[]> {
@@ -33,6 +33,6 @@ export class ApiEmployeeRepository implements EmployeeRepository {
     const res =
       this.cache.get<ApiEmployeeResponse[]>(url) ??
       (await this.mutate<ApiEmployeeResponse[]>(url, fetcher(url, { method: 'GET' })))
-    return res.map(r => new Employee(r.employee_id))
+    return res.map(r => new Employee(r.employee_id, r.employee_name))
   }
 }

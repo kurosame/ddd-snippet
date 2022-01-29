@@ -5,13 +5,12 @@ export default {
   title: 'atoms'
 }
 
-export type Column = 'employeeId' | 'employeeName'
+type Column = 'employeeId' | 'employeeName'
 
 const columns: Columns<Column> = [
   { id: 'employeeId', label: '社員ID' },
   { id: 'employeeName', label: '社員名' }
 ]
-
 const rows: Rows<Column> = [
   {
     employeeId: 'A000',
@@ -26,7 +25,6 @@ const rows: Rows<Column> = [
     employeeName: 'テストS太郎'
   }
 ]
-
 const uniqueColumn: UniqueColumn<Column> = 'employeeId'
 
 export const Table = (): JSX.Element => <App {...{ columns, rows, uniqueColumn }} />
