@@ -1,5 +1,6 @@
 import { EmployeeFetchCommand } from '@/application/employee/command/EmployeeFetchCommand'
 import { EmployeeUpdateCommand } from '@/application/employee/command/EmployeeUpdateCommand'
+import { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { fetchEmployees, updateEmployee } from '@/application/employee/usecase'
 import { Employee } from '@/domain/entities/Employee'
 import { mockCache, mockMutate } from '@/infrastructure/api/MockRepository'
@@ -17,7 +18,7 @@ describe('fetchEmployees', () => {
   test('return is entity[]', async () => {
     const command = new EmployeeFetchCommand(cache, mutateFetchAll)
     const res = await fetchEmployees(command)
-    expect(res).toStrictEqual([new Employee('A000', 'テストA太郎')])
+    expect(res).toStrictEqual([new EmployeeDto(new Employee('A000', 'テストA太郎'))])
   })
 })
 

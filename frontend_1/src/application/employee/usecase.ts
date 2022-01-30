@@ -1,15 +1,16 @@
 import type { EmployeeFetchCommand } from '@/application/employee/command/EmployeeFetchCommand'
 import type { EmployeeUpdateCommand } from '@/application/employee/command/EmployeeUpdateCommand'
+import { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { Employee } from '@/domain/entities/Employee'
 import { EmployeeService } from '@/domain/services/EmployeeService'
 import { ApiEmployeeRepository } from '@/infrastructure/api/ApiEmployeeRepository'
 
-export const fetchEmployees = async (command: EmployeeFetchCommand): Promise<Employee[]> => {
+export const fetchEmployees = async (command: EmployeeFetchCommand): Promise<EmployeeDto[]> => {
   const apiEmployeeRepository = new ApiEmployeeRepository(command.cache, command.mutate)
   const employeeService = new EmployeeService(apiEmployeeRepository)
 
   const res = await employeeService.fetchAll()
-  return res
+  return res.map(e => new EmployeeDto(e))
 }
 
 export const updateEmployee = async (command: EmployeeUpdateCommand): Promise<void> => {

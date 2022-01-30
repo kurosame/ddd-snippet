@@ -1,10 +1,11 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { SWRConfig } from 'swr'
+import { worker } from '@/__mocks__/browser'
 import { Employee } from './components/organisms/Employee'
 
 if (process.env.NODE_ENV === 'development') {
-  import('@/__mocks__/browser').then(r => r.worker.start()).catch(e => console.error({ 'msw-error': e }))
+  worker.start({ onUnhandledRequest: 'bypass' })
 }
 
 class RootComponent extends React.Component {
