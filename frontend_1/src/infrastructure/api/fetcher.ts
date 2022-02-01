@@ -1,5 +1,6 @@
 type FetchRequestOption = {
-  method: 'GET'
+  method: 'GET' | 'PUT'
+  data?: unknown
 }
 
 export const fetcher = async <T>(url: string, opt: FetchRequestOption): Promise<T> => {
@@ -7,7 +8,8 @@ export const fetcher = async <T>(url: string, opt: FetchRequestOption): Promise<
     method: opt.method,
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
+    ...(opt.method === 'PUT' && opt.data ? { body: JSON.stringify(opt.data) } : {})
   })
     .then(r => {
       if (r.ok) return r.json()

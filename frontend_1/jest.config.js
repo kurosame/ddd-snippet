@@ -9,6 +9,6 @@ module.exports = {
     '<rootDir>/src/infrastructure/**/*.ts'
   ],
   coverageDirectory: '<rootDir>/coverage',
-  coverageReporters: ['html'],
+  coverageReporters: ['html', 'text-summary'],
   verbose: true
 }
