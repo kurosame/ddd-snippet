@@ -1,6 +1,6 @@
+import React from 'react'
 import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { EmployeeTable as App } from '@/components/molecules/EmployeeTable'
-import React from 'react'
 
 export default {
   title: 'molecules'
@@ -21,4 +21,4 @@ const employees: EmployeeDto[] = [
   }
 ]
 
-export const EmployeeTable = (): JSX.Element => <App {...{ employees }} />
+export const EmployeeTable = (): JSX.Element => <App {...{ employees, onSync: () => console.info('clicked') }} />

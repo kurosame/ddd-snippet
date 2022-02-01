@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useSWRConfig } from 'swr'
 import { EmployeeFetchCommand } from '@/application/employee/command/EmployeeFetchCommand'
 import { EmployeeUpdateCommand } from '@/application/employee/command/EmployeeUpdateCommand'
@@ -13,9 +13,14 @@ export const Employee: React.VFC = () => {
   const [employees, setEmployees] = useState<EmployeeDto[]>([])
   const { cache, mutate } = useSWRConfig()
 
+  const fetchToSetEmployees = useCallback(
+    () => fetchEmployees(new EmployeeFetchCommand(cache, mutate)).then(r => setEmployees(r)),
+    [cache, mutate]
+  )
+
   useEffect(() => {
-    fetchEmployees(new EmployeeFetchCommand(cache, mutate)).then(r => setEmployees(r))
-  }, [cache, mutate])
+    fetchToSetEmployees()
+  }, [fetchToSetEmployees])
 
   const handleClick = () => {
     updateEmployee(new EmployeeUpdateCommand(employeeId, cache, mutate)).catch(e => {
@@ -27,7 +32,7 @@ export const Employee: React.VFC = () => {
     <>
       <LabeledTextInput label="社員ID" value={employeeId} onChange={v => setEmployeeId(v)} />
       <Button onClick={handleClick}>登録</Button>
-      <EmployeeTable {...{ employees }} />
+      <EmployeeTable {...{ employees, onSync: fetchToSetEmployees }} />
     </>
   )
 }
