@@ -23,5 +23,5 @@ export const employee = [
       ctx.json(id ? employees.find(e => e.employee_id === id.toUpperCase()) ?? {} : employees)
     )
   }),
-  rest.put('/api/employee', (_, res, ctx) => res(ctx.status(200)))
+  rest.put('/api/employee', (_, res, ctx) => res(ctx.status(200), ctx.json({})))
 ]

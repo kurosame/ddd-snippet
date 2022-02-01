@@ -26,7 +26,7 @@ export const Employee: React.VFC = () => {
   return (
     <>
       <LabeledTextInput label="社員ID" value={employeeId} onChange={v => setEmployeeId(v)} />
-      <Button onClick={handleClick}>更新</Button>
+      <Button onClick={handleClick}>登録</Button>
       <EmployeeTable {...{ employees }} />
     </>
   )
