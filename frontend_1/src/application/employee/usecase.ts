@@ -16,9 +16,9 @@ export const fetchEmployees = async (command: EmployeeFetchCommand): Promise<Emp
 export const updateEmployee = async (command: EmployeeUpdateCommand): Promise<void> => {
   const apiEmployeeRepository = new ApiEmployeeRepository(command.cache, command.mutate)
   const employeeService = new EmployeeService(apiEmployeeRepository)
-  const employeeEntity = new Employee(command.employeeId, '') // TODO:employeeName
+  const employee = new Employee(command.employeeId, '') // TODO:employeeName
 
-  const res = await employeeService.isExists(employeeEntity.employeeId)
+  const res = await employeeService.isExists(employee.employeeId)
   if (res) throw new Error('この社員はすでに登録済みです')
-  // TODO:POST処理
+  employeeService.update(employee)
 }
