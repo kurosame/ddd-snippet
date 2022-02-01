@@ -18,4 +18,8 @@ export class EmployeeService {
     const res = await this.#employeeRepository.find(employeeId)
     return !!res
   }
+
+  public async update(employee: Employee): Promise<void> {
+    await this.#employeeRepository.save(employee)
+  }
 }
