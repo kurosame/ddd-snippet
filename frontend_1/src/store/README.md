@@ -18,7 +18,7 @@ Global state
 
 ### 実装方針
 
-- SWR は organisms で呼び出し、Command に cache と mutate を渡す
+- SWR は Organisms で呼び出し、Command に cache と mutate を渡す
   - SWR はカスタムフックなので、関数コンポーネントのトップレベルで呼び出す必要がある
 - Repository の実装で cache があれば cache を返し、cache がなければ fetch と mutate を行う
 - cache を API のレスポンス値以外で更新したい場合は、mutate().then の中で更新値を return する
