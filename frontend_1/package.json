@@ -7,6 +7,7 @@
     "swr": "1.1.2"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^6.4.18",
     "@storybook/react": "6.4.9",
     "@types/jest": "27.4.0",
     "@types/react": "17.0.38",
