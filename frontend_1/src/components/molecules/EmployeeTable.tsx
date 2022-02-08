@@ -1,4 +1,3 @@
-import React from 'react'
 import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { Icon } from '@/components/atoms/Icon'
 import type { Columns, Rows, UniqueColumn } from '@/components/atoms/Table'

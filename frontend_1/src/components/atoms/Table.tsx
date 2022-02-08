@@ -1,5 +1,3 @@
-import React from 'react'
-
 type AnonymousUnion = keyof { [key: string]: unknown }
 
 export type Columns<T> = {

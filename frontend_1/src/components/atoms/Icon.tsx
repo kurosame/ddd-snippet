@@ -1,4 +1,4 @@
-import React, { createElement } from 'react'
+import { createElement } from 'react'
 import { FaSyncAlt } from 'react-icons/fa'
 
 const icons = {

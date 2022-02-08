@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useSWRConfig } from 'swr'
 import { EmployeeFetchCommand } from '@/application/employee/command/EmployeeFetchCommand'
 import { EmployeeUpdateCommand } from '@/application/employee/command/EmployeeUpdateCommand'

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { LabeledTextInput as App } from '@/components/molecules/LabeledTextInput'
 
 export default {

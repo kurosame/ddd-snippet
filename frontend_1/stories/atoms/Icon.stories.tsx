@@ -1,4 +1,3 @@
-import React from 'react'
 import { Icon as App } from '@/components/atoms/Icon'
 
 export default {

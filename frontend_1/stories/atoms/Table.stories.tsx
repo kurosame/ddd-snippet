@@ -1,4 +1,3 @@
-import React from 'react'
 import { Columns, Rows, Table as App, UniqueColumn } from '@/components/atoms/Table'
 
 export default {

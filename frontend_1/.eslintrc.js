@@ -24,7 +24,8 @@ module.exports = {
     ],
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
     'react/jsx-no-useless-fragment': ['error', { allowExpressions: true }],
-    'react/prop-types': 'off' // This is checked by TypeScript
+    'react/prop-types': 'off', // This is checked by TypeScript
+    'react/react-in-jsx-scope': 'off'
   },
   ignorePatterns: ['vite.config.ts']
 }

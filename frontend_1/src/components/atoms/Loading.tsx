@@ -1,4 +1,3 @@
-import type React from 'react'
 import { css, keyframes } from '@emotion/react'
 
 const rotate = keyframes`

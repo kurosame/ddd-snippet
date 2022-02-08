@@ -1,4 +1,3 @@
-import React from 'react'
 import { EmployeePage as App } from '@/components/pages/Employee'
 
 export default {

@@ -1,4 +1,3 @@
-import React from 'react'
 import { DefaultLayout as App } from '@/components/templates/Default'
 
 export default {

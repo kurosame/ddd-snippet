@@ -1,4 +1,3 @@
-import React from 'react'
 import { Employee as App } from '@/components/organisms/Employee'
 
 export default {

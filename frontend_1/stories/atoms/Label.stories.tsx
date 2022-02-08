@@ -1,4 +1,3 @@
-import React from 'react'
 import { Label as App } from '@/components/atoms/Label'
 
 export default {
