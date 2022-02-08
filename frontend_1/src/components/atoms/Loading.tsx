@@ -10,12 +10,12 @@ const rotate = keyframes`
 `
 
 const loading = css`
-  width: 32px;
   height: 32px;
-  margin: 10px auto;
-  border: 4px #ddd solid;
-  border-top: 4px #2e93e6 solid;
+  width: 32px;
+  border: 4px lightgray solid;
+  border-top: 4px steelblue solid;
   border-radius: 50%;
+  margin: 10px auto;
   animation: ${rotate} 1s linear infinite;
 `
 

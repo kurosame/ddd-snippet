@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => ({
       ]
     }
   },
-  plugins: [react()],
+  plugins: [react({ jsxImportSource: '@emotion/react' })],
   resolve: {
     alias: {
       '@': path.join(__dirname, 'src')

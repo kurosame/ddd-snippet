@@ -7,6 +7,7 @@
 
 - React
 - TypeScript
+- Emotion
 - SWR
 - MSW（Mock Service Worker）
 - Storybook
