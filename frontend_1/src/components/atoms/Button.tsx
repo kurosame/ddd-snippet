@@ -13,6 +13,7 @@ const button = css`
   border-radius: 5px;
   padding: 2px 4px;
   transition: 0.5s;
+
   &:hover {
     color: white;
     background: deepskyblue;
