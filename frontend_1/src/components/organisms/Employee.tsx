@@ -11,7 +11,7 @@ import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
 import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 
 export const Employee: React.VFC = () => {
-  const [employeeId, setEmployeeId] = useState('')
+  const [employee, setEmployee] = useState<EmployeeUpdateCommand['employee']>({ employeeId: '', employeeName: '' })
   const [employees, setEmployees] = useState<EmployeeDto[]>([])
   const { cache, mutate } = useSWRConfig()
 
@@ -25,14 +25,23 @@ export const Employee: React.VFC = () => {
   }, [fetchToSetEmployees])
 
   const handleClick = () => {
-    updateEmployee(new EmployeeUpdateCommand(employeeId, cache, mutate)).catch(e => {
+    updateEmployee(new EmployeeUpdateCommand(employee, cache, mutate)).catch(e => {
       console.error({ 'event-handler-error': e })
     })
   }
 
   return (
     <>
-      <LabeledTextInput label="社員ID" value={employeeId} onChange={v => setEmployeeId(v)} />
+      <LabeledTextInput
+        label="社員ID"
+        value={employee.employeeId}
+        onChange={v => setEmployee({ ...employee, employeeId: v })}
+      />
+      <LabeledTextInput
+        label="社員名"
+        value={employee.employeeName}
+        onChange={v => setEmployee({ ...employee, employeeName: v })}
+      />
       <Button onClick={handleClick}>登録</Button>
       <EmployeeTable {...{ employees, onSync: fetchToSetEmployees }} />
     </>

@@ -29,12 +29,12 @@ describe('updateEmployee', () => {
   })
 
   test('duplicate employee', () => {
-    const command = new EmployeeUpdateCommand('A000', cache, mutate)
+    const command = new EmployeeUpdateCommand({ employeeId: 'A000', employeeName: 'テストA太郎' }, cache, mutate)
     expect(() => updateEmployee(command)).rejects.toThrowError(new Error('この社員はすでに登録済みです'))
   })
 
   test('update employee', () => {
-    const command = new EmployeeUpdateCommand('A111', cache, mutate)
+    const command = new EmployeeUpdateCommand({ employeeId: 'A111', employeeName: 'テストA太郎' }, cache, mutate)
     expect(() => updateEmployee(command)).not.toThrowError()
   })
 })

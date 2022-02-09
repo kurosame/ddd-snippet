@@ -1,10 +1,10 @@
 export class EmployeeUpdateCommand {
-  public employeeId: string
+  public employee: { employeeId: string; employeeName: string }
   public cache: unknown
   public mutate: unknown
 
-  public constructor(employeeId: string, cache: unknown, mutate: unknown) {
-    this.employeeId = employeeId
+  public constructor(employee: { employeeId: string; employeeName: string }, cache: unknown, mutate: unknown) {
+    this.employee = employee
     this.cache = cache
     this.mutate = mutate
   }
