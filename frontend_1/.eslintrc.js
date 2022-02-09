@@ -12,6 +12,14 @@ module.exports = {
   rules: {
     'class-methods-use-this': 'off',
     'import/extensions': ['error', 'ignorePackages', { ts: 'never', tsx: 'never' }],
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'type'],
+        'newlines-between': 'always',
+        alphabetize: { order: 'asc' }
+      }
+    ],
     'import/prefer-default-export': 'off',
     'lines-between-class-members': 'off',
     'no-console': ['error', { allow: ['info', 'warn', 'error'] }],

@@ -1,7 +1,8 @@
-import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { Icon } from '@/components/atoms/Icon'
-import type { Columns, Rows, UniqueColumn } from '@/components/atoms/Table'
 import { Table } from '@/components/atoms/Table'
+
+import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
+import type { Columns, Rows, UniqueColumn } from '@/components/atoms/Table'
 
 type Column = 'employeeId' | 'employeeName'
 

@@ -1,5 +1,6 @@
-import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { EmployeeTable as App } from '@/components/molecules/EmployeeTable'
+
+import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 
 export default {
   title: 'molecules'

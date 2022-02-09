@@ -2,8 +2,9 @@ import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import { SWRConfig } from 'swr'
-import { Router } from '@/router'
+
 import { worker } from '@/__mocks__/browser'
+import { Router } from '@/router'
 
 if (process.env.NODE_ENV === 'development') {
   worker.start({ onUnhandledRequest: 'bypass' })
