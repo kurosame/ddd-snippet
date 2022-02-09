@@ -6,12 +6,12 @@ type Props = {
 }
 
 const button = css`
+  padding: 2px 4px;
   font-weight: bold;
   color: deepskyblue;
   background: whitesmoke;
   border-color: deepskyblue;
   border-radius: 5px;
-  padding: 2px 4px;
   transition: 0.5s;
 
   &:hover {
