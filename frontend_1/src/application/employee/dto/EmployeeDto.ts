@@ -6,6 +6,6 @@ export class EmployeeDto {
 
   public constructor(employee: Employee) {
     this.employeeId = employee.employeeId.id
-    this.employeeName = employee.employeeName
+    this.employeeName = employee.employeeName.name
   }
 }

@@ -39,7 +39,7 @@ export class ApiEmployeeRepository implements EmployeeRepository {
 
   public async save(employee: Employee): Promise<void> {
     const url = `/api/employee?employee_id=${employee.employeeId.id}`
-    const data: ApiEmployeeResponse = { employee_id: employee.employeeId.id, employee_name: employee.employeeName }
+    const data: ApiEmployeeResponse = { employee_id: employee.employeeId.id, employee_name: employee.employeeName.name }
     await this.mutate<void>(url, fetcher(url, { method: 'PUT', data })).then(() => {
       this.cache.delete('/api/employee')
       return data
