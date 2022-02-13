@@ -10,6 +10,7 @@ module.exports = {
   },
   babel: async p => ({
     ...p,
-    presets: [...p.presets, '@emotion/babel-preset-css-prop']
+    presets: [...p.presets, '@emotion/babel-preset-css-prop'],
+    plugins: ['react-require']
   })
 }
