@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots atoms Table 1`] = `
+<table>
+  <thead>
+    <tr>
+      <th>
+        社員ID
+      </th>
+      <th>
+        社員名
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        A000
+      </td>
+      <td>
+        テストA太郎
+      </td>
+    </tr>
+    <tr>
+      <td>
+        B111
+      </td>
+      <td>
+        テストB太郎
+      </td>
+    </tr>
+    <tr>
+      <td>
+        S222
+      </td>
+      <td>
+        テストS太郎
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

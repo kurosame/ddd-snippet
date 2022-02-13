@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots molecules Labeled Text Input 1`] = `
+Array [
+  <span>
+    ラベル
+  </span>,
+  <input
+    onChange={[Function]}
+    type="text"
+    value="default"
+  />,
+]
+`;

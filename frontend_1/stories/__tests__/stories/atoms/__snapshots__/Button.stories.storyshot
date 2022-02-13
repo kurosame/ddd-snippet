@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots atoms Button 1`] = `
+<button
+  className="css-ga5h9u-Button"
+  onClick={[Function]}
+  type="button"
+>
+  ボタン
+</button>
+`;

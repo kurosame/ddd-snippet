@@ -1,3 +1,3 @@
-import { worker } from '@/__mocks__/browser'
-
-worker.start()
+if (process.env.NODE_ENV !== 'test') {
+  import('@/__mocks__/browser').then(r => r.worker.start())
+}
