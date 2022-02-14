@@ -15,7 +15,7 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'internal', 'type'],
+        groups: ['builtin', 'external', 'internal', 'unknown', 'type'],
         'newlines-between': 'always',
         alphabetize: { order: 'asc' }
       }
