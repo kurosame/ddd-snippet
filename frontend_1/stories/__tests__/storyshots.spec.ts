@@ -1,11 +1,12 @@
 /**
  * @jest-environment jsdom
  */
-import initStoryshots, { Stories2SnapsConverter } from '@storybook/addon-storyshots'
-import { act, renderHook } from '@testing-library/react-hooks'
 import React from 'react'
 import { create } from 'react-test-renderer'
 import { useSWRConfig } from 'swr'
+
+import initStoryshots, { Stories2SnapsConverter } from '@storybook/addon-storyshots'
+import { act, renderHook } from '@testing-library/react-hooks'
 
 const converter = new Stories2SnapsConverter()
 

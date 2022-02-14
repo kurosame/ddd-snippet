@@ -16,6 +16,14 @@ module.exports = {
       'error',
       {
         groups: ['builtin', 'external', 'internal', 'unknown', 'type'],
+        pathGroups: [
+          {
+            pattern: '{@emotion,@storybook,@testing-library}/**',
+            group: 'external',
+            position: 'after'
+          }
+        ],
+        pathGroupsExcludedImportTypes: ['builtin'],
         'newlines-between': 'always',
         alphabetize: { order: 'asc' }
       }
