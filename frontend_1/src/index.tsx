@@ -7,7 +7,7 @@ import { worker } from '@/__mocks__/browser'
 import { Router } from '@/router'
 
 if (process.env.NODE_ENV === 'development') {
-  worker.start({ onUnhandledRequest: 'bypass' })
+  worker().start({ onUnhandledRequest: 'bypass' })
 }
 
 class RootComponent extends React.Component {

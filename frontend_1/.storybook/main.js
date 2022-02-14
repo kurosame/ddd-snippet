@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   stories: ['../stories/**/*.stories.tsx'],
-  addons: ['@storybook/addon-a11y'],
+  addons: ['@storybook/addon-a11y', 'storybook-addon-performance/register'],
   staticDirs: ['../public'],
   webpackFinal: async p => {
     p.resolve.alias['@'] = path.join(__dirname, '../src')
