@@ -15,7 +15,7 @@ module.exports = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'internal', 'unknown', 'type'],
+        groups: ['builtin', 'external', 'internal', 'unknown'],
         pathGroups: [
           {
             pattern: '{@emotion,@storybook,@testing-library}/**',

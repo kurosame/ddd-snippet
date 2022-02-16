@@ -1,9 +1,8 @@
 import { Employee } from '@/domain/entities/Employee'
-import { fetcher, isHaveResponse } from '@/infrastructure/api/fetcher'
-
 import type { EmployeeRepository } from '@/domain/repositories/EmployeeRepository'
 import type { Cache, Mutate } from '@/domain/repositories/Repository'
 import type { EmployeeId } from '@/domain/values/EmployeeId'
+import { fetcher, isHaveResponse } from '@/infrastructure/api/fetcher'
 
 type ApiEmployeeResponse = {
   employee_id: string
