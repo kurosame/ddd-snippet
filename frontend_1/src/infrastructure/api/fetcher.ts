@@ -13,10 +13,10 @@ export const fetcher = async <T>(url: string, opt: FetchRequestOption): Promise<
   })
     .then(r => {
       if (r.ok) return r.json()
-      throw new Error(`api-error: ${r.json()}`)
+      throw new Error(`fetch-ng: ${r.json()}`)
     })
     .catch(e => {
-      throw new Error(`api-error: ${e}`)
+      throw e
     })
   return res
 }
