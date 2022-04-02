@@ -1,6 +1,6 @@
-import { Employee } from '@/domain/entities/Employee'
-import { EmployeeId } from '@/domain/values/EmployeeId'
-import { EmployeeName } from '@/domain/values/EmployeeName'
+import { Employee } from '@/domain/entity/Employee'
+import { EmployeeId } from '@/domain/vo/EmployeeId'
+import { EmployeeName } from '@/domain/vo/EmployeeName'
 
 describe('constructor', () => {
   test('create an entity', () => {

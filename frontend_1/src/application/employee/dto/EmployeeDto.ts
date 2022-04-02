@@ -1,4 +1,4 @@
-import type { Employee } from '@/domain/entities/Employee'
+import type { Employee } from '@/domain/entity/Employee'
 
 export class EmployeeDto {
   public readonly employeeId: string

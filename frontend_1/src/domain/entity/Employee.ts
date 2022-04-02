@@ -1,5 +1,5 @@
-import { EmployeeId } from '@/domain/values/EmployeeId'
-import { EmployeeName } from '@/domain/values/EmployeeName'
+import { EmployeeId } from '@/domain/vo/EmployeeId'
+import { EmployeeName } from '@/domain/vo/EmployeeName'
 
 export class Employee {
   public readonly employeeId: EmployeeId

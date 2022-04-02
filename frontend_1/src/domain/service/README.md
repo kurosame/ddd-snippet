@@ -1,4 +1,4 @@
-# `domain/services`
+# `domain/service`
 
 Domain Service
 

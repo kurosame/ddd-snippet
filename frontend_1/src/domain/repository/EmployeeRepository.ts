@@ -1,6 +1,6 @@
-import type { Employee } from '@/domain/entities/Employee'
-import type { ApiRepository } from '@/domain/repositories/Repository'
-import type { EmployeeId } from '@/domain/values/EmployeeId'
+import type { Employee } from '@/domain/entity/Employee'
+import type { ApiRepository } from '@/domain/repository/Repository'
+import type { EmployeeId } from '@/domain/vo/EmployeeId'
 
 export interface EmployeeRepository extends ApiRepository {
   find: (employeeId: EmployeeId) => Promise<Employee | null>

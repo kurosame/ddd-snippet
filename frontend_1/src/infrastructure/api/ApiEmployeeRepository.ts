@@ -1,7 +1,7 @@
-import { Employee } from '@/domain/entities/Employee'
-import type { EmployeeRepository } from '@/domain/repositories/EmployeeRepository'
-import type { Cache, Mutate } from '@/domain/repositories/Repository'
-import type { EmployeeId } from '@/domain/values/EmployeeId'
+import { Employee } from '@/domain/entity/Employee'
+import type { EmployeeRepository } from '@/domain/repository/EmployeeRepository'
+import type { Cache, Mutate } from '@/domain/repository/Repository'
+import type { EmployeeId } from '@/domain/vo/EmployeeId'
 import { fetcher, isHaveResponse } from '@/infrastructure/api/fetcher'
 
 type ApiEmployeeResponse = {

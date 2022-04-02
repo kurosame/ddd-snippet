@@ -1,4 +1,4 @@
-# `domain/values`
+# `domain/vo`
 
 VO（値オブジェクト）
 

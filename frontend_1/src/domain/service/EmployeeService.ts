@@ -1,6 +1,6 @@
-import type { Employee } from '@/domain/entities/Employee'
-import type { EmployeeRepository } from '@/domain/repositories/EmployeeRepository'
-import type { EmployeeId } from '@/domain/values/EmployeeId'
+import type { Employee } from '@/domain/entity/Employee'
+import type { EmployeeRepository } from '@/domain/repository/EmployeeRepository'
+import type { EmployeeId } from '@/domain/vo/EmployeeId'
 
 export class EmployeeService {
   readonly #employeeRepository: EmployeeRepository

@@ -1,8 +1,8 @@
 import type { EmployeeFetchCommand } from '@/application/employee/command/EmployeeFetchCommand'
 import type { EmployeeUpdateCommand } from '@/application/employee/command/EmployeeUpdateCommand'
 import { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
-import { Employee } from '@/domain/entities/Employee'
-import { EmployeeService } from '@/domain/services/EmployeeService'
+import { Employee } from '@/domain/entity/Employee'
+import { EmployeeService } from '@/domain/service/EmployeeService'
 import { ApiEmployeeRepository } from '@/infrastructure/api/ApiEmployeeRepository'
 
 export const fetchEmployees = async (command: EmployeeFetchCommand): Promise<EmployeeDto[]> => {

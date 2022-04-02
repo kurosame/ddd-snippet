@@ -1,4 +1,4 @@
-import { EmployeeName } from '@/domain/values/EmployeeName'
+import { EmployeeName } from '@/domain/vo/EmployeeName'
 
 describe('constructor', () => {
   test('create a vo', () => {

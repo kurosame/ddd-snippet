@@ -1,6 +1,6 @@
-import { Employee } from '@/domain/entities/Employee'
-import { EmployeeService } from '@/domain/services/EmployeeService'
-import { EmployeeId } from '@/domain/values/EmployeeId'
+import { Employee } from '@/domain/entity/Employee'
+import { EmployeeService } from '@/domain/service/EmployeeService'
+import { EmployeeId } from '@/domain/vo/EmployeeId'
 import { ApiEmployeeRepository } from '@/infrastructure/api/ApiEmployeeRepository'
 import { mockCache, mockMutate } from '@/infrastructure/api/MockRepository'
 

@@ -2,7 +2,7 @@ import { EmployeeFetchCommand } from '@/application/employee/command/EmployeeFet
 import { EmployeeUpdateCommand } from '@/application/employee/command/EmployeeUpdateCommand'
 import { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { fetchEmployees, updateEmployee } from '@/application/employee/usecase'
-import { Employee } from '@/domain/entities/Employee'
+import { Employee } from '@/domain/entity/Employee'
 import { mockCache, mockMutate } from '@/infrastructure/api/MockRepository'
 
 describe('fetchEmployees', () => {

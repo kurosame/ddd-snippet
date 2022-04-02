@@ -1,4 +1,4 @@
-# `domain/repositories`
+# `domain/repository`
 
 Repository のインターフェイス
 

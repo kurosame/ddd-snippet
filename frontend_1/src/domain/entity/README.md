@@ -1,4 +1,4 @@
-# `domain/entities`
+# `domain/entity`
 
 Entity
 

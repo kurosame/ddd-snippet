@@ -1,5 +1,5 @@
-import { Employee } from '@/domain/entities/Employee'
-import { EmployeeId } from '@/domain/values/EmployeeId'
+import { Employee } from '@/domain/entity/Employee'
+import { EmployeeId } from '@/domain/vo/EmployeeId'
 import { ApiEmployeeRepository } from '@/infrastructure/api/ApiEmployeeRepository'
 import { mockCache, mockMutate } from '@/infrastructure/api/MockRepository'
 
