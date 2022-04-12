@@ -11,6 +11,7 @@ import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
 
 export const Employee: React.VFC = () => {
   const [employee, setEmployee] = useState<EmployeeUpdateCommand['employee']>({ employeeId: '', employeeName: '' })
+  const [company, setCompany] = useState<EmployeeUpdateCommand['company']>({ companyName: '' })
   const [employees, setEmployees] = useState<EmployeeDto[]>([])
   const { cache, mutate } = useSWRConfig()
 
@@ -24,7 +25,7 @@ export const Employee: React.VFC = () => {
   }, [fetchToSetEmployees])
 
   const handleClick = () => {
-    updateEmployee(new EmployeeUpdateCommand(employee, cache, mutate)).catch(e => {
+    updateEmployee(new EmployeeUpdateCommand(employee, company, cache, mutate)).catch(e => {
       console.error({ 'event-handler-error': e })
     })
   }
@@ -41,6 +42,7 @@ export const Employee: React.VFC = () => {
         value={employee.employeeName}
         onChange={v => setEmployee({ ...employee, employeeName: v })}
       />
+      <LabeledTextInput label="会社名" value={company.companyName} onChange={v => setCompany({ companyName: v })} />
       <Button onClick={handleClick}>登録</Button>
       <EmployeeTable {...{ employees, onSync: fetchToSetEmployees }} />
     </>

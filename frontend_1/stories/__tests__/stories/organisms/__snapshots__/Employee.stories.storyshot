@@ -18,6 +18,14 @@ Array [
     type="text"
     value=""
   />,
+  <span>
+    会社名
+  </span>,
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />,
   <button
     className="css-ga5h9u-Button"
     onClick={[Function]}
