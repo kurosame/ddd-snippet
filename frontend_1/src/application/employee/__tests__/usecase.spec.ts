@@ -31,7 +31,7 @@ describe('updateEmployee', () => {
   test('duplicate employee', () => {
     const command = new EmployeeUpdateCommand(
       { employeeId: 'A000', employeeName: 'テストA太郎' },
-      { companyName: 'テスト社' },
+      { companyName: '株式会社A' },
       cache,
       mutate
     )
@@ -41,7 +41,7 @@ describe('updateEmployee', () => {
   test('update employee', () => {
     const command = new EmployeeUpdateCommand(
       { employeeId: 'A111', employeeName: 'テストA太郎' },
-      { companyName: 'テスト社' },
+      { companyName: '株式会社A' },
       cache,
       mutate
     )
