@@ -28,16 +28,6 @@ describe('updateEmployee', () => {
     mutate = mockMutate(`/api/employee?employee_id=A000`, { employee_id: 'A000' })
   })
 
-  test('duplicate employee', () => {
-    const command = new EmployeeUpdateCommand(
-      { employeeId: 'A000', employeeName: 'テストA太郎' },
-      { companyName: '株式会社A' },
-      cache,
-      mutate
-    )
-    expect(() => updateEmployee(command)).rejects.toThrowError(new Error('この社員はすでに登録済みです'))
-  })
-
   test('update employee', () => {
     const command = new EmployeeUpdateCommand(
       { employeeId: 'A111', employeeName: 'テストA太郎' },

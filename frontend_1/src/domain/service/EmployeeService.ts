@@ -9,14 +9,14 @@ export class EmployeeService {
     this.#employeeRepository = employeeRepository
   }
 
-  public async fetchAll(): Promise<Employee[]> {
-    const res = await this.#employeeRepository.findAll()
+  public async fetch(employeeId: EmployeeId): Promise<Employee | null> {
+    const res = await this.#employeeRepository.find(employeeId)
     return res
   }
 
-  public async isExists(employeeId: EmployeeId): Promise<boolean> {
-    const res = await this.#employeeRepository.find(employeeId)
-    return !!res
+  public async fetchAll(): Promise<Employee[]> {
+    const res = await this.#employeeRepository.findAll()
+    return res
   }
 
   public async update(employee: Employee): Promise<void> {

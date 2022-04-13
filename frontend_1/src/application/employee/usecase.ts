@@ -19,13 +19,13 @@ export const updateEmployee = async (command: EmployeeUpdateCommand): Promise<vo
   const apiEmployeeRepository = new ApiEmployeeRepository(command.cache, command.mutate)
   const employeeService = new EmployeeService(apiEmployeeRepository)
   const employeeSpecification = new EmployeeSpecification()
-  const employee = new Employee(command.employee.employeeId, command.employee.employeeName)
-  const company = new Company(command.company.companyName)
+  const employeeEntity = new Employee(command.employee.employeeId, command.employee.employeeName)
+  const companyEntity = new Company(command.company.companyName)
 
-  const res = await employeeService.isExists(employee.employeeId)
-  if (res) throw new Error('この社員はすでに登録済みです')
+  const employee = await employeeService.fetch(employeeEntity.employeeId)
 
-  employeeSpecification.isBelongCompany(employee, company)
+  employeeSpecification.isExists(employee)
+  employeeSpecification.isBelongCompany(employeeEntity, companyEntity)
 
-  employeeService.update(employee)
+  employeeService.update(employeeEntity)
 }

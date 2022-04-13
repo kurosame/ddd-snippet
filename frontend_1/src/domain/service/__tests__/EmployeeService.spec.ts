@@ -4,6 +4,31 @@ import { EmployeeId } from '@/domain/vo/EmployeeId'
 import { ApiEmployeeRepository } from '@/infrastructure/api/ApiEmployeeRepository'
 import { mockCache, mockMutate } from '@/infrastructure/api/MockRepository'
 
+describe('fetch', () => {
+  let cache: { get: jest.Mock }
+  let mutate: jest.Mock
+  beforeEach(() => {
+    cache = mockCache(`/api/employee?employee_id=S000`, { employee_id: 'S000', employee_name: 'テストS太郎' })
+    mutate = mockMutate(`/api/employee?employee_id=A000`, { employee_id: 'A000', employee_name: 'テストA太郎' })
+  })
+
+  test('employee is exists', async () => {
+    const rep = new ApiEmployeeRepository(cache, mutate)
+    const service = new EmployeeService(rep)
+    const res = await service.fetch(new EmployeeId('A000'))
+
+    expect(res).toStrictEqual(new Employee('A000', 'テストA太郎'))
+  })
+
+  test('employee is not exists', async () => {
+    const rep = new ApiEmployeeRepository(cache, mutate)
+    const service = new EmployeeService(rep)
+    const res = await service.fetch(new EmployeeId('B000'))
+
+    expect(res).toBeNull()
+  })
+})
+
 describe('fetchAll', () => {
   let cache: { get: jest.Mock }
   let mutate: jest.Mock
@@ -16,30 +41,8 @@ describe('fetchAll', () => {
     const rep = new ApiEmployeeRepository(cache, mutate)
     const service = new EmployeeService(rep)
     const res = await service.fetchAll()
+
     expect(res).toStrictEqual([new Employee('B000', 'テストB太郎')])
-  })
-})
-
-describe('isExists', () => {
-  let cache: { get: jest.Mock }
-  let mutate: jest.Mock
-  beforeEach(() => {
-    cache = mockCache(`/api/employee?employee_id=S000`, { employee_id: 'S000' })
-    mutate = mockMutate(`/api/employee?employee_id=A000`, { employee_id: 'A000' })
-  })
-
-  test('employee is exists', async () => {
-    const rep = new ApiEmployeeRepository(cache, mutate)
-    const service = new EmployeeService(rep)
-    const res = await service.isExists(new EmployeeId('A000'))
-    expect(res).toBeTruthy()
-  })
-
-  test('employee is not exists', async () => {
-    const rep = new ApiEmployeeRepository(cache, mutate)
-    const service = new EmployeeService(rep)
-    const res = await service.isExists(new EmployeeId('B000'))
-    expect(res).toBeFalsy()
   })
 })
 
@@ -51,9 +54,10 @@ describe('update', () => {
     mutate = mockMutate(`/api/employee?employee_id=A000`, { employee_id: 'A000' })
   })
 
-  test('', async () => {
+  test('save employee', () => {
     const rep = new ApiEmployeeRepository(cache, mutate)
     const service = new EmployeeService(rep)
-    await service.update(new Employee('B000', 'テストB太郎'))
+
+    expect(() => service.update(new Employee('B000', 'テストB太郎'))).not.toThrowError()
   })
 })
