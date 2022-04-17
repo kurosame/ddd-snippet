@@ -22,9 +22,11 @@ export class ApiEmployeeRepository implements EmployeeRepository {
     const url = `/api/employee?employee_id=${employeeId.id}`
     const res =
       this.cache.get<ApiEmployeeResponse>(url) ??
-      (await this.mutate<ApiEmployeeResponse | Record<never, never>>(url, fetcher(url, { method: 'GET' })).then(r =>
-        isHaveResponse(r) ? r : null
-      ))
+      (await this.mutate<ApiEmployeeResponse | Record<never, never>>(url, fetcher(url, { method: 'GET' })).then(r => {
+        const data = isHaveResponse(r) ? r : null
+        this.cache.set(url, data)
+        return data
+      }))
     return res && new Employee(res.employee_id, res.employee_name)
   }
 
@@ -40,8 +42,8 @@ export class ApiEmployeeRepository implements EmployeeRepository {
     const url = `/api/employee?employee_id=${employee.employeeId.id}`
     const data: ApiEmployeeResponse = { employee_id: employee.employeeId.id, employee_name: employee.employeeName.name }
     await this.mutate<void>(url, fetcher(url, { method: 'PUT', data })).then(() => {
+      this.cache.set(url, data)
       this.cache.delete('/api/employee')
-      return data
     })
   }
 }
