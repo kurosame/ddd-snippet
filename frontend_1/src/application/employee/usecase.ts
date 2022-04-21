@@ -1,8 +1,8 @@
 import type { EmployeeFetchCommand } from '@/application/employee/command/EmployeeFetchCommand'
 import type { EmployeeUpdateCommand } from '@/application/employee/command/EmployeeUpdateCommand'
 import { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
-import { Company } from '@/domain/entity/Company'
 import { Employee } from '@/domain/entity/Employee'
+import { CompanyFactory } from '@/domain/factory/CompanyFactory'
 import { EmployeeService } from '@/domain/service/EmployeeService'
 import { EmployeeSpecification } from '@/domain/specification/EmployeeSpecification'
 import { ApiEmployeeRepository } from '@/infrastructure/api/ApiEmployeeRepository'
@@ -20,7 +20,7 @@ export const updateEmployee = async (command: EmployeeUpdateCommand): Promise<vo
   const employeeService = new EmployeeService(apiEmployeeRepository)
   const employeeSpecification = new EmployeeSpecification()
   const employeeEntity = new Employee(command.employee.employeeId, command.employee.employeeName)
-  const companyEntity = new Company(command.company.companyName)
+  const companyEntity = new CompanyFactory().create(command.company.companyName)
 
   const employee = await employeeService.fetch(employeeEntity.employeeId)
 
