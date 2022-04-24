@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { useRecoilState } from 'recoil'
 import { useSWRConfig } from 'swr'
 
 import { EmployeeFetchCommand } from '@/application/employee/command/EmployeeFetchCommand'
@@ -8,9 +9,10 @@ import { fetchEmployees, updateEmployee } from '@/application/employee/usecase'
 import { Button } from '@/components/atoms/Button'
 import { EmployeeTable } from '@/components/molecules/EmployeeTable'
 import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
+import { employeeState } from '@/store/employee'
 
 export const Employee: React.VFC = () => {
-  const [employee, setEmployee] = useState<EmployeeUpdateCommand['employee']>({ employeeId: '', employeeName: '' })
+  const [employee, setEmployee] = useRecoilState(employeeState)
   const [company, setCompany] = useState<EmployeeUpdateCommand['company']>({ companyName: '' })
   const [employees, setEmployees] = useState<EmployeeDto[]>([])
   const { cache, mutate } = useSWRConfig()

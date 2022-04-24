@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
+import { RecoilRoot } from 'recoil'
 import { SWRConfig } from 'swr'
 
 import { worker } from '@/__mocks__/browser'
@@ -18,17 +19,19 @@ class RootComponent extends React.Component {
   public render() {
     return (
       <BrowserRouter>
-        <SWRConfig
-          value={{
-            onErrorRetry: (error, _key, _config, revalidate, { retryCount }) => {
-              if (error.status === 404) return
-              if (retryCount >= 5) return
-              setTimeout(() => revalidate({ retryCount: retryCount + 1 }), 5000)
-            }
-          }}
-        >
-          <Router />
-        </SWRConfig>
+        <RecoilRoot>
+          <SWRConfig
+            value={{
+              onErrorRetry: (error, _key, _config, revalidate, { retryCount }) => {
+                if (error.status === 404) return
+                if (retryCount >= 5) return
+                setTimeout(() => revalidate({ retryCount: retryCount + 1 }), 5000)
+              }
+            }}
+          >
+            <Router />
+          </SWRConfig>
+        </RecoilRoot>
       </BrowserRouter>
     )
   }

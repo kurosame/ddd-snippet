@@ -7,7 +7,8 @@ module.exports = {
     '<rootDir>/src/application/**/*.ts',
     '<rootDir>/src/core/**/*.ts',
     '<rootDir>/src/domain/**/*.ts',
-    '<rootDir>/src/infrastructure/**/*.ts'
+    '<rootDir>/src/infrastructure/**/*.ts',
+    '<rootDir>/src/store/**/*.ts'
   ],
   coverageDirectory: '<rootDir>/coverage',
   coverageReporters: ['html', 'text-summary'],
