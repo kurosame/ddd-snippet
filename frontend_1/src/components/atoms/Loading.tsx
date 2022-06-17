@@ -19,4 +19,4 @@ const loading = css`
   animation: ${rotate} 1s linear infinite;
 `
 
-export const Loading: React.VFC = () => <div css={loading} />
+export const Loading: React.FC = () => <div css={loading} />

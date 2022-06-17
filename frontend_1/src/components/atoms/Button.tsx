@@ -20,7 +20,7 @@ const button = css`
   }
 `
 
-export const Button: React.VFC<Props> = ({ onClick, children }) => (
+export const Button: React.FC<Props> = ({ onClick, children }) => (
   <button type="button" css={button} onClick={() => onClick()}>
     {children}
   </button>

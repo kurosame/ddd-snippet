@@ -10,7 +10,7 @@ type Props = {
   onSync: () => void
 }
 
-export const EmployeeTable: React.VFC<Props> = ({ employees, onSync }) => {
+export const EmployeeTable: React.FC<Props> = ({ employees, onSync }) => {
   const columns: Columns<Column> = [
     { id: 'employeeId', label: '社員ID' },
     { id: 'employeeName', label: '社員名' }

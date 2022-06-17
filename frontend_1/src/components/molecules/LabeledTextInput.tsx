@@ -7,7 +7,7 @@ type Props = {
   onChange: (v: string) => void
 }
 
-export const LabeledTextInput: React.VFC<Props> = ({ label, value, onChange }) => (
+export const LabeledTextInput: React.FC<Props> = ({ label, value, onChange }) => (
   <>
     <Label>{label}</Label>
     <TextInput value={value} onChange={onChange} />

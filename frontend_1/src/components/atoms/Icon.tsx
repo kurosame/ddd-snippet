@@ -12,4 +12,4 @@ type Props = {
 
 const getIcon = ({ name, onClick }: Props) => createElement(icons[name], { onClick })
 
-export const Icon: React.VFC<Props> = ({ name, onClick }) => getIcon({ name, onClick })
+export const Icon: React.FC<Props> = ({ name, onClick }) => getIcon({ name, onClick })

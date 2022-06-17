@@ -17,7 +17,7 @@ type Props<T extends AnonymousUnion> = {
   uniqueColumn: UniqueColumn<T>
 }
 
-export const Table: React.VFC<Props<AnonymousUnion>> = ({ columns, rows, uniqueColumn }) => (
+export const Table: React.FC<Props<AnonymousUnion>> = ({ columns, rows, uniqueColumn }) => (
   <table>
     <thead>
       <tr>

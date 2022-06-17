@@ -11,7 +11,7 @@ import { EmployeeTable } from '@/components/molecules/EmployeeTable'
 import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
 import { employeeState } from '@/store/employee'
 
-export const Employee: React.VFC = () => {
+export const Employee: React.FC = () => {
   const [employee, setEmployee] = useRecoilState(employeeState)
   const [company, setCompany] = useState<EmployeeUpdateCommand['company']>({ companyName: '' })
   const [employees, setEmployees] = useState<EmployeeDto[]>([])

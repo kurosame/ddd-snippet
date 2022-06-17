@@ -9,7 +9,7 @@ const EmployeePage = React.lazy(() =>
   }))
 )
 
-export const Router: React.VFC = () => (
+export const Router: React.FC = () => (
   <Routes>
     <Route
       path="/"
