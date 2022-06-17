@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 import { SWRConfig } from 'swr'
@@ -37,4 +37,7 @@ class RootComponent extends React.Component {
   }
 }
 
-render(<RootComponent />, document.getElementById('root'))
+const container = document.getElementById('root')
+if (container) {
+  createRoot(container).render(<RootComponent />)
+}
