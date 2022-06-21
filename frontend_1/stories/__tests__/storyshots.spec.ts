@@ -6,7 +6,7 @@ import { create } from 'react-test-renderer'
 import { useSWRConfig } from 'swr'
 
 import initStoryshots, { Stories2SnapsConverter } from '@storybook/addon-storyshots'
-import { act, renderHook } from '@testing-library/react-hooks'
+import { act, renderHook } from '@testing-library/react'
 
 const converter = new Stories2SnapsConverter()
 

@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports = {
   stories: ['../stories/**/*.stories.tsx'],
-  addons: ['@storybook/addon-a11y', 'storybook-addon-performance/register'],
+  addons: ['@storybook/addon-a11y'],
   staticDirs: ['../public'],
   core: {
     builder: {
