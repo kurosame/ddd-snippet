@@ -1,16 +1,24 @@
-import { Columns, Rows, Table as App, UniqueColumn } from '@/components/atoms/Table'
+import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
+import { Columns, RowEl, Rows, Table as App } from '@/components/atoms/Table'
 
 export default {
   title: 'atoms'
 }
 
-type Column = 'employeeId' | 'employeeName'
+type Column = 'id' | 'employeeId' | 'employeeName'
 
 const columns: Columns<Column> = [
   { id: 'employeeId', label: '社員ID' },
   { id: 'employeeName', label: '社員名' }
 ]
-const rows: Rows<Column> = [
+
+const rowEl: RowEl<EmployeeDto, Column> = e => ({
+  id: { content: e.employeeId },
+  employeeId: { content: e.employeeId },
+  employeeName: { content: e.employeeName }
+})
+
+const rows: Rows<EmployeeDto[]> = [
   {
     employeeId: 'A000',
     employeeName: 'テストA太郎'
@@ -24,6 +32,5 @@ const rows: Rows<Column> = [
     employeeName: 'テストS太郎'
   }
 ]
-const uniqueColumn: UniqueColumn<Column> = 'employeeId'
 
-export const Table = (): JSX.Element => <App {...{ columns, rows, uniqueColumn }} />
+export const Table = (): JSX.Element => <App {...{ columns, rowEl, rows }} />

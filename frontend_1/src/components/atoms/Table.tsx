@@ -5,19 +5,20 @@ export type Columns<T> = {
   label: string
 }[]
 
-export type Rows<T extends AnonymousUnion> = {
-  [P in T]: string
-}[]
+type Row<T extends AnonymousUnion> = {
+  [P in T]: { content: string; el?: JSX.Element } | { content?: string; el: JSX.Element }
+}
+export type RowEl<T, C extends AnonymousUnion> = (r: T) => Row<C>
 
-export type UniqueColumn<T> = T
+export type Rows<T extends unknown[]> = T
 
 type Props<T extends AnonymousUnion> = {
   columns: Columns<T>
-  rows: Rows<T>
-  uniqueColumn: UniqueColumn<T>
+  rowEl: RowEl<any, T>
+  rows: Rows<unknown[]>
 }
 
-export const Table: React.FC<Props<AnonymousUnion>> = ({ columns, rows, uniqueColumn }) => (
+export const Table: React.FC<Props<AnonymousUnion>> = ({ columns, rowEl, rows }) => (
   <table>
     <thead>
       <tr>
@@ -28,10 +29,11 @@ export const Table: React.FC<Props<AnonymousUnion>> = ({ columns, rows, uniqueCo
     </thead>
     <tbody>
       {rows.map(r => (
-        <tr key={r[uniqueColumn]}>
-          {columns.map(c => (
-            <td key={c.id}>{r[c.id]}</td>
-          ))}
+        <tr key={rowEl(r).id?.content}>
+          {columns.map(c => {
+            const re = rowEl(r)[c.id]
+            return re ? <td key={c.id}>{re.content ? re.content : re.el}</td> : <td key={c.id} />
+          })}
         </tr>
       ))}
     </tbody>

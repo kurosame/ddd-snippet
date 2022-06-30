@@ -1,12 +1,12 @@
 import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { Icon } from '@/components/atoms/Icon'
-import type { Columns, Rows, UniqueColumn } from '@/components/atoms/Table'
+import type { Columns, RowEl, Rows } from '@/components/atoms/Table'
 import { Table } from '@/components/atoms/Table'
 
-type Column = 'employeeId' | 'employeeName'
+type Column = 'id' | 'employeeId' | 'employeeName'
 
 type Props = {
-  employees: EmployeeDto[]
+  employees: Rows<EmployeeDto[]>
   onSync: () => void
 }
 
@@ -15,12 +15,16 @@ export const EmployeeTable: React.FC<Props> = ({ employees, onSync }) => {
     { id: 'employeeId', label: '社員ID' },
     { id: 'employeeName', label: '社員名' }
   ]
-  const rows: Rows<Column> = employees.map(e => ({ employeeId: e.employeeId, employeeName: e.employeeName }))
-  const uniqueColumn: UniqueColumn<Column> = 'employeeId'
+
+  const rowEl: RowEl<EmployeeDto, Column> = e => ({
+    id: { content: e.employeeId },
+    employeeId: { content: e.employeeId },
+    employeeName: { content: e.employeeName }
+  })
 
   return (
     <>
-      <Table {...{ columns, rows, uniqueColumn }} />
+      <Table {...{ columns, rowEl, rows: employees }} />
       <Icon name="sync" onClick={onSync} />
     </>
   )
