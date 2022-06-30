@@ -12,20 +12,20 @@ describe('fetcher', () => {
   })
 
   describe('fetch json', () => {
-    test('{ method: GET }', () => {
+    test('{ method: GET }', async () => {
       const fetch = spyFetch(Promise.resolve({ ok: true, json: () => 'ok' }))
       const res = fetcher('/test', { method: 'GET' })
 
-      expect(res).resolves.toBe('ok')
+      await expect(res).resolves.toBe('ok')
       expect(fetch).toHaveBeenCalled()
       expect(fetch).toHaveBeenCalledWith('/test', { method: 'GET', headers: { 'Content-Type': 'application/json' } })
     })
 
-    test('{ method: PUT }', () => {
+    test('{ method: PUT }', async () => {
       const fetch = spyFetch(Promise.resolve({ ok: true, json: () => 'ok' }))
       const res = fetcher('/test', { method: 'PUT', data: { test: 'put data' } })
 
-      expect(res).resolves.toBe('ok')
+      await expect(res).resolves.toBe('ok')
       expect(fetch).toHaveBeenCalled()
       expect(fetch).toHaveBeenCalledWith('/test', {
         method: 'PUT',
@@ -35,18 +35,18 @@ describe('fetcher', () => {
     })
   })
 
-  test('fetch ok is false', () => {
+  test('fetch ok is false', async () => {
     const fetch = spyFetch(Promise.resolve({ ok: false, json: () => 'ng' }))
 
-    expect(() => fetcher('/test', { method: 'GET' })).rejects.toThrowError(new Error('fetch-ng: ng'))
+    await expect(() => fetcher('/test', { method: 'GET' })).rejects.toThrowError(new Error('fetch-ng: ng'))
     expect(fetch).toHaveBeenCalled()
     expect(fetch).toHaveBeenCalledWith('/test', { method: 'GET', headers: { 'Content-Type': 'application/json' } })
   })
 
-  test('fetch rejected', () => {
+  test('fetch rejected', async () => {
     const fetch = spyFetch(Promise.reject(new Error('rejected')))
 
-    expect(() => fetcher('/test', { method: 'GET' })).rejects.toThrowError(new Error('rejected'))
+    await expect(() => fetcher('/test', { method: 'GET' })).rejects.toThrowError(new Error('rejected'))
     expect(fetch).toHaveBeenCalled()
     expect(fetch).toHaveBeenCalledWith('/test', { method: 'GET', headers: { 'Content-Type': 'application/json' } })
   })

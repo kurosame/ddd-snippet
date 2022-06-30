@@ -23,11 +23,13 @@ export const Employee: React.FC = () => {
   )
 
   useEffect(() => {
-    fetchToSetEmployees()
+    fetchToSetEmployees().catch(e => {
+      throw e
+    })
   }, [fetchToSetEmployees])
 
   const handleClick = () => {
-    updateEmployee(new EmployeeUpdateCommand(employee, company, cache, mutate)).catch(e => {
+    updateEmployee(new EmployeeUpdateCommand(employee, company, cache, mutate)).catch((e: Error) => {
       console.error({ 'event-handler-error': e })
     })
   }

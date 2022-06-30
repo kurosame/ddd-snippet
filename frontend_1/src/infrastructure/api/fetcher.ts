@@ -3,6 +3,10 @@ type FetchRequestOption = {
   data?: unknown
 }
 
+type ErrorResponse = {
+  messages: string[]
+}
+
 export const fetcher = async <T>(url: string, opt: FetchRequestOption): Promise<T> => {
   const res = await fetch(url, {
     method: opt.method,
@@ -11,9 +15,11 @@ export const fetcher = async <T>(url: string, opt: FetchRequestOption): Promise<
     },
     ...(opt.method === 'PUT' && opt.data ? { body: JSON.stringify(opt.data) } : {})
   })
-    .then(r => {
+    .then(async (r): Promise<T> => {
       if (r.ok) return r.json()
-      throw new Error(`fetch-ng: ${r.json()}`)
+      return r.json().then((e: ErrorResponse) => {
+        throw new Error(`fetch error: ${e.messages.join()}`)
+      })
     })
     .catch(e => {
       throw e

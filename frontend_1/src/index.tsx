@@ -8,7 +8,11 @@ import { worker } from '@/__mocks__/browser'
 import { Router } from '@/router'
 
 if (process.env.NODE_ENV === 'development') {
-  worker().start({ onUnhandledRequest: 'bypass' })
+  worker()
+    .start({ onUnhandledRequest: 'bypass' })
+    .catch(e => {
+      throw e
+    })
 }
 
 class RootComponent extends React.Component {
@@ -22,7 +26,8 @@ class RootComponent extends React.Component {
         <RecoilRoot>
           <SWRConfig
             value={{
-              onErrorRetry: (error, _key, _config, revalidate, { retryCount }) => {
+              // TODO: Official `error` is `any`, so I define it myself
+              onErrorRetry: (error: Error & { status: number }, _key, _config, revalidate, { retryCount }) => {
                 if (error.status === 404) return
                 if (retryCount >= 5) return
                 setTimeout(() => revalidate({ retryCount: retryCount + 1 }), 5000)

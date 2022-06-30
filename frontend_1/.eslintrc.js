@@ -1,8 +1,17 @@
 module.exports = {
   env: { browser: true },
-  extends: ['airbnb', 'airbnb/hooks', 'plugin:@typescript-eslint/recommended', 'prettier'],
+  extends: [
+    'airbnb',
+    'airbnb/hooks',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier'
+  ],
   parser: '@typescript-eslint/parser',
-  parserOptions: { ecmaFeatures: { jsx: true } },
+  parserOptions: {
+    ecmaFeatures: { jsx: true },
+    project: './tsconfig.json'
+  },
   settings: {
     'import/resolver': {
       typescript: { project: './' }
@@ -10,6 +19,7 @@ module.exports = {
     react: { version: 'detect' }
   },
   rules: {
+    '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
     'class-methods-use-this': 'off',
     'import/extensions': ['error', 'ignorePackages', { ts: 'never', tsx: 'never' }],
     'import/order': [
