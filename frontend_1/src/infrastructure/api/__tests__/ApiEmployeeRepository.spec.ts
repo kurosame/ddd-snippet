@@ -11,14 +11,6 @@ describe('find', () => {
     mutate = mockMutate(`/api/employee?employee_id=A000`, { employee_id: 'A000', employee_name: 'テストA太郎' })
   })
 
-  test('cache is exists', async () => {
-    const rep = new ApiEmployeeRepository(cache, mutate)
-    const res = await rep.find(new EmployeeId('S000'))
-
-    expect(cache.set).not.toBeCalled()
-    expect(res).toStrictEqual(new Employee('S000', 'テストS太郎'))
-  })
-
   test('return is entity', async () => {
     const rep = new ApiEmployeeRepository(cache, mutate)
     const res = await rep.find(new EmployeeId('A000'))

@@ -2,7 +2,7 @@ import { Employee } from '@/domain/entity/Employee'
 import type { EmployeeRepository } from '@/domain/repository/EmployeeRepository'
 import type { Cache, Mutate } from '@/domain/repository/Repository'
 import type { EmployeeId } from '@/domain/vo/EmployeeId'
-import { fetcher, isHaveResponse } from '@/infrastructure/api/fetcher'
+import { get, isHaveResponse, put } from '@/infrastructure/api/fetcher'
 
 type ApiEmployeeResponse = {
   employee_id: string
@@ -20,28 +20,24 @@ export class ApiEmployeeRepository implements EmployeeRepository {
 
   public async find(employeeId: EmployeeId): Promise<Employee | null> {
     const url = `/api/employee?employee_id=${employeeId.id}`
-    const res =
-      this.cache.get<ApiEmployeeResponse>(url) ??
-      (await this.mutate<ApiEmployeeResponse | Record<never, never>>(url, fetcher(url, { method: 'GET' })).then(r => {
-        const data = isHaveResponse(r) ? r : null
-        this.cache.set(url, data)
-        return data
-      }))
+    const res = await get<ApiEmployeeResponse | Record<never, never>>(this.cache, this.mutate, url).then(r => {
+      const data = isHaveResponse(r) ? r : null
+      this.cache.set(url, data)
+      return data
+    })
     return res && new Employee(res.employee_id, res.employee_name)
   }
 
   public async findAll(): Promise<Employee[]> {
     const url = '/api/employee'
-    const res =
-      this.cache.get<ApiEmployeeResponse[]>(url) ??
-      (await this.mutate<ApiEmployeeResponse[]>(url, fetcher(url, { method: 'GET' })))
+    const res = await get<ApiEmployeeResponse[]>(this.cache, this.mutate, url)
     return res.map(r => new Employee(r.employee_id, r.employee_name))
   }
 
   public async save(employee: Employee): Promise<void> {
     const url = `/api/employee?employee_id=${employee.employeeId.id}`
     const data: ApiEmployeeResponse = { employee_id: employee.employeeId.id, employee_name: employee.employeeName.name }
-    await this.mutate<void>(url, fetcher(url, { method: 'PUT', data })).then(() => {
+    await put<void>(this.mutate, url, { data }).then(() => {
       this.cache.set(url, data)
       this.cache.delete('/api/employee')
     })

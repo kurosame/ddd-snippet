@@ -1,3 +1,5 @@
+import type { Cache, Mutate } from '@/domain/repository/Repository'
+
 type FetchRequestOption = {
   method: 'GET' | 'PUT'
   data?: unknown
@@ -7,7 +9,8 @@ type ErrorResponse = {
   messages: string[]
 }
 
-export const fetcher = async <T>(url: string, opt: FetchRequestOption): Promise<T> => {
+/* istanbul ignore next */
+const fetcher = async <T>(url: string, opt: FetchRequestOption): Promise<T> => {
   const res = await fetch(url, {
     method: opt.method,
     headers: {
@@ -24,6 +27,24 @@ export const fetcher = async <T>(url: string, opt: FetchRequestOption): Promise<
     .catch(e => {
       throw e
     })
+  return res
+}
+
+const mutator = <T>(mutate: Mutate, url: string, opt: FetchRequestOption): Promise<T> =>
+  mutate<T>(url, fetcher<T>(url, opt))
+
+export const get = async <T>(
+  cache: Cache,
+  mutate: Mutate,
+  url: string,
+  opt: Omit<FetchRequestOption, 'method'> = {}
+): Promise<T> => {
+  const res = cache.get<T>(url) ?? (await mutator<T>(mutate, url, { method: 'GET', ...opt }))
+  return res
+}
+
+export const put = async <T>(mutate: Mutate, url: string, opt: Omit<FetchRequestOption, 'method'>): Promise<T> => {
+  const res = await mutator<T>(mutate, url, { method: 'PUT', ...opt })
   return res
 }
 

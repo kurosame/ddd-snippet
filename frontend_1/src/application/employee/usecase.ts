@@ -27,7 +27,5 @@ export const updateEmployee = async (command: EmployeeUpdateCommand): Promise<vo
   employeeSpecification.isExists(employee)
   employeeSpecification.isBelongCompany(employeeEntity, companyEntity)
 
-  employeeService.update(employeeEntity).catch(e => {
-    throw e
-  })
+  await employeeService.update(employeeEntity)
 }
