@@ -5,3 +5,9 @@ exports[`Storyshots atoms Label 1`] = `
   ラベル
 </span>
 `;
+
+exports[`Storyshots atoms/Label Label 1`] = `
+<span>
+  ラベル
+</span>
+`;

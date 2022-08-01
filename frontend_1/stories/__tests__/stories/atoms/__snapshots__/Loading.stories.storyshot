@@ -5,3 +5,9 @@ exports[`Storyshots atoms Loading 1`] = `
   className="css-773q4t-Loading"
 />
 `;
+
+exports[`Storyshots atoms/Loading Loading 1`] = `
+<div
+  className="css-773q4t-Loading"
+/>
+`;

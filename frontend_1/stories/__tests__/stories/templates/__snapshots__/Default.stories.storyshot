@@ -5,3 +5,9 @@ exports[`Storyshots templates Default Layout 1`] = `
   aaaa
 </span>
 `;
+
+exports[`Storyshots templates/DefaultLayout Default Layout 1`] = `
+<span>
+  aaaa
+</span>
+`;

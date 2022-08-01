@@ -9,3 +9,13 @@ exports[`Storyshots atoms Button 1`] = `
   ボタン
 </button>
 `;
+
+exports[`Storyshots atoms/Button Button 1`] = `
+<button
+  className="css-ga5h9u-Button"
+  onClick={[Function]}
+  type="button"
+>
+  ボタン
+</button>
+`;

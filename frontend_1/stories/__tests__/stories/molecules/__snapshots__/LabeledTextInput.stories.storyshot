@@ -12,3 +12,16 @@ Array [
   />,
 ]
 `;
+
+exports[`Storyshots molecules/LabeledTextInput Labeled Text Input 1`] = `
+Array [
+  <span>
+    ラベル
+  </span>,
+  <input
+    onChange={[Function]}
+    type="text"
+    value="default"
+  />,
+]
+`;

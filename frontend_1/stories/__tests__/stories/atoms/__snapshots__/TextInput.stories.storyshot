@@ -7,3 +7,11 @@ exports[`Storyshots atoms Text Input 1`] = `
   value="default"
 />
 `;
+
+exports[`Storyshots atoms/TextInput Text Input 1`] = `
+<input
+  onChange={[Function]}
+  type="text"
+  value="default"
+/>
+`;
