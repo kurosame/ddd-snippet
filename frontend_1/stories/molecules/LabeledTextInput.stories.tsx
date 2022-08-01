@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { LabeledTextInput as App } from '@/components/molecules/LabeledTextInput'
 
 export default {
-  title: 'molecules'
+  title: 'molecules/LabeledTextInput'
 }
 
 export const LabeledTextInput = (): JSX.Element => {

@@ -2,7 +2,7 @@ import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { Columns, RowEl, Rows, Table as App } from '@/components/atoms/Table'
 
 export default {
-  title: 'atoms'
+  title: 'atoms/Table'
 }
 
 type Column = 'id' | 'employeeId' | 'employeeName'

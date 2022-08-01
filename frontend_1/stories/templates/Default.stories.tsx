@@ -1,7 +1,7 @@
 import { DefaultLayout as App } from '@/components/templates/Default'
 
 export default {
-  title: 'templates'
+  title: 'templates/DefaultLayout'
 }
 
 export const DefaultLayout = (): JSX.Element => (

@@ -5,7 +5,7 @@ import type { addDecorator } from '@storybook/react'
 import { Employee as App } from '@/components/organisms/Employee'
 
 export default {
-  title: 'organisms',
+  title: 'organisms/Employee',
   decorators: [fn => <RecoilRoot>{fn()}</RecoilRoot>] as Parameters<typeof addDecorator>[0][]
 }
 

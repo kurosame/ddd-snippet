@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { TextInput as App } from '@/components/atoms/TextInput'
 
 export default {
-  title: 'atoms'
+  title: 'atoms/TextInput'
 }
 
 export const TextInput = (): JSX.Element => {
