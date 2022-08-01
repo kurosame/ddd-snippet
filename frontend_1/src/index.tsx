@@ -7,7 +7,7 @@ import { SWRConfig } from 'swr'
 import { worker } from '@/__mocks__/browser'
 import { Router } from '@/router'
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env['NODE_ENV'] === 'development') {
   worker()
     .start({ onUnhandledRequest: 'bypass' })
     .catch(e => {
@@ -16,11 +16,11 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 class RootComponent extends React.Component {
-  public componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  public override componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.error({ 'error-boundary-error': error, errorInfo })
   }
 
-  public render() {
+  public override render() {
     return (
       <BrowserRouter>
         <RecoilRoot>

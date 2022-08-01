@@ -29,7 +29,7 @@ export const Table: React.FC<Props<AnonymousUnion>> = ({ columns, rowEl, rows })
     </thead>
     <tbody>
       {rows.map(r => (
-        <tr key={rowEl(r).id?.content}>
+        <tr key={rowEl(r)['id']?.content}>
           {columns.map(c => {
             const re = rowEl(r)[c.id]
             return re ? <td key={c.id}>{re.content ? re.content : re.el}</td> : <td key={c.id} />

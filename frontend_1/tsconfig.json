@@ -1,24 +1,15 @@
 {
+  "extends": "@tsconfig/strictest/tsconfig.json",
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
     "jsx": "react-jsx",
     "sourceMap": true,
-    "importsNotUsedAsValues": "error",
     "isolatedModules": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedIndexedAccess": true,
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": { "@/*": ["src/*"] },
-    "esModuleInterop": true,
-    "jsxImportSource": "@emotion/react",
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "jsxImportSource": "@emotion/react"
   },
   "include": ["src/**/*.ts", "src/**/*.tsx", "stories/**/*.ts", "stories/**/*.tsx"]
 }

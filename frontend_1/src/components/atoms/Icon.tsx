@@ -7,7 +7,7 @@ const icons = {
 
 type Props = {
   name: keyof typeof icons
-  onClick?: () => void
+  onClick?: (() => void) | undefined
 }
 
 const getIcon = ({ name, onClick }: Props) => createElement(icons[name], { onClick })

@@ -19,8 +19,10 @@ module.exports = {
     react: { version: 'detect' }
   },
   rules: {
+    '@typescript-eslint/dot-notation': ['error'], // Compatible with TypeScript's noPropertyAccessFromIndexSignature option
     '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
     'class-methods-use-this': 'off',
+    'dot-notation': 'off', // Incompatible with TypeScript's noPropertyAccessFromIndexSignature option
     'import/extensions': ['error', 'ignorePackages', { ts: 'never', tsx: 'never' }],
     'import/order': [
       'error',
