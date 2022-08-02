@@ -7,7 +7,7 @@ import { SWRConfig } from 'swr'
 import { worker } from '@/__mocks__/browser'
 import { Router } from '@/router'
 
-if (process.env['NODE_ENV'] === 'development') {
+if (import.meta.env.MODE === 'development') {
   worker()
     .start({ onUnhandledRequest: 'bypass' })
     .catch(e => {
