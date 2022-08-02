@@ -74,7 +74,9 @@
     "lint:style": "stylelint --ignore-path .gitignore '**/*.tsx'",
     "fmt": "prettier --write --ignore-path .gitignore '**/*.{ts,tsx}'",
     "test": "jest --watchAll",
-    "analyze": "vite build --mode analyze"
+    "analyze": "vite build --mode analyze",
+    "ts-prune": "npx ts-prune -i 'stories'",
+    "fixpack": "npx fixpack"
   },
   "volta": {
     "node": "16.13.2"
