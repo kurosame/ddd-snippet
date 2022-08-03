@@ -71,7 +71,6 @@ describe('save', () => {
     const rep = new ApiEmployeeRepository(cache, mutate)
     await rep.save(new Employee('S000', 'テストS太郎'))
 
-    expect(cache.set).toBeCalled()
-    expect(cache.delete).toBeCalled()
+    expect(mutate).toBeCalled()
   })
 })

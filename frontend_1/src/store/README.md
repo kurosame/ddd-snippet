@@ -20,7 +20,8 @@ Global state
 
 - SWR は Organisms で呼び出し、Command に cache と mutate を渡す
   - SWR はカスタムフックなので、関数コンポーネントのトップレベルで呼び出す必要がある
-- Repository の実装で cache があれば cache を返し、cache がなければ fetch と mutate を行う
-- cache を API のレスポンス値以外で更新したい場合は、cache.set を使う
-  - API のレスポンス値で更新するのであれば、cache.set を書かなくても勝手に更新される
-- 他の関数で使用している cache を更新したい場合は、更新せずに cache.delete する
+- fetcher の取得系メソッドで cache があれば cache を返し、cache がなければ fetch する
+- fetcher の更新系メソッドでエンドポイントに紐づくキャッシュをすべて削除する
+  - ユースケースに合わせたキャッシュ削除は共通化が難しいので、一律全削除にする
+  - もし、個別にキャッシュ操作する必要がある場合は、各 Repository で実装する
+    - ただし、Repository ではキャッシュ周りの操作は基本的に行わない
