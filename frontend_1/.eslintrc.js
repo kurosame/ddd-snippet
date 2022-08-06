@@ -37,7 +37,7 @@ module.exports = {
         ],
         pathGroupsExcludedImportTypes: ['builtin'],
         'newlines-between': 'always',
-        alphabetize: { order: 'asc' }
+        alphabetize: { order: 'asc', caseInsensitive: true }
       }
     ],
     'import/prefer-default-export': 'off',

@@ -1,6 +1,6 @@
 import { SWRCache } from '@/domain/repository/Repository'
-import { mockCache, mockMutate } from '@/infrastructure/api/MockRepository'
 import { get, isHaveResponse, put } from '@/infrastructure/api/fetcher'
+import { mockCache, mockMutate } from '@/infrastructure/api/MockRepository'
 
 type FetchResponse = {
   ok?: boolean
