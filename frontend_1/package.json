@@ -41,7 +41,7 @@
     "prettier": "2.7.1",
     "react-test-renderer": "18.2.0",
     "rollup-plugin-visualizer": "5.7.1",
-    "stylelint": "14.9.1",
+    "stylelint": "14.16.0",
     "stylelint-config-prettier": "9.0.3",
     "stylelint-config-recess-order": "3.0.0",
     "stylelint-config-standard": "26.0.0",
