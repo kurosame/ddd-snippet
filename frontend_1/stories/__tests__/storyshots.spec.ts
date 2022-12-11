@@ -25,11 +25,15 @@ initStoryshots({
     const { result } = renderHook(() => useSWRConfig())
     act(() => {
       result.current.cache.set('/api/employee', [{ employee_id: 'A000', employee_name: 'テストA太郎' }])
+    }).catch(e => {
+      throw e
     })
 
     let renderer
     act(() => {
       renderer = create(React.createElement(story.render))
+    }).catch(e => {
+      throw e
     })
 
     await act(
