@@ -1,83 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots atoms Table 1`] = `
-<table>
-  <thead>
-    <tr>
-      <th>
-        社員ID
-      </th>
-      <th>
-        社員名
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        A000
-      </td>
-      <td>
-        テストA太郎
-      </td>
-    </tr>
-    <tr>
-      <td>
-        B111
-      </td>
-      <td>
-        テストB太郎
-      </td>
-    </tr>
-    <tr>
-      <td>
-        S222
-      </td>
-      <td>
-        テストS太郎
-      </td>
-    </tr>
-  </tbody>
-</table>
-`;
-
 exports[`Storyshots atoms/Table Table 1`] = `
-<table>
-  <thead>
-    <tr>
-      <th>
-        社員ID
-      </th>
-      <th>
-        社員名
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        A000
-      </td>
-      <td>
-        テストA太郎
-      </td>
-    </tr>
-    <tr>
-      <td>
-        B111
-      </td>
-      <td>
-        テストB太郎
-      </td>
-    </tr>
-    <tr>
-      <td>
-        S222
-      </td>
-      <td>
-        テストS太郎
-      </td>
-    </tr>
-  </tbody>
-</table>
+Object {
+  "rerender": [Function],
+  "result": Object {
+    "current": <Table
+      columns={
+        Array [
+          Object {
+            "id": "employeeId",
+            "label": "社員ID",
+          },
+          Object {
+            "id": "employeeName",
+            "label": "社員名",
+          },
+        ]
+      }
+      rowEl={[Function]}
+      rows={
+        Array [
+          Object {
+            "employeeId": "A000",
+            "employeeName": "テストA太郎",
+          },
+          Object {
+            "employeeId": "B111",
+            "employeeName": "テストB太郎",
+          },
+          Object {
+            "employeeId": "S222",
+            "employeeName": "テストS太郎",
+          },
+        ]
+      }
+    />,
+  },
+  "unmount": [Function],
+}
 `;

@@ -9,6 +9,7 @@
 ## frontend_1
 
 - Atomic Design
+  - React
 - Tactical DDD
 
 ## frontend_2

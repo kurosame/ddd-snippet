@@ -6,7 +6,7 @@ import { RecoilRoot } from 'recoil'
 import { SWRConfig } from 'swr'
 
 import { worker } from '@/__mocks__/browser'
-import { SWRContext, useSetupSWR } from '@/components/hooks/swr'
+import { ActionContext, useActionContext } from '@/components/hooks/di'
 import { Router } from '@/router'
 
 if (import.meta.env.MODE === 'development') {
@@ -25,7 +25,7 @@ const handleError = (error: Error, errorInfo: React.ErrorInfo) => {
 
 const RootComponent: React.FC = () => (
   <ErrorBoundary FallbackComponent={FallbackError} onError={handleError}>
-    <SWRContext.Provider value={useSetupSWR()}>
+    <ActionContext.Provider value={useActionContext()}>
       <BrowserRouter>
         <RecoilRoot>
           <SWRConfig
@@ -42,7 +42,7 @@ const RootComponent: React.FC = () => (
           </SWRConfig>
         </RecoilRoot>
       </BrowserRouter>
-    </SWRContext.Provider>
+    </ActionContext.Provider>
   </ErrorBoundary>
 )
 

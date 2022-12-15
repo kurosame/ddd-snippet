@@ -1,13 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots atoms Loading 1`] = `
-<div
-  className="css-773q4t-Loading"
-/>
-`;
-
 exports[`Storyshots atoms/Loading Loading 1`] = `
-<div
-  className="css-773q4t-Loading"
-/>
+Object {
+  "rerender": [Function],
+  "result": Object {
+    "current": <Loading />,
+  },
+  "unmount": [Function],
+}
 `;

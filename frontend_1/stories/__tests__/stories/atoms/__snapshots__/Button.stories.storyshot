@@ -1,21 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots atoms Button 1`] = `
-<button
-  className="css-ga5h9u-Button"
-  onClick={[Function]}
-  type="button"
->
-  ボタン
-</button>
-`;
-
 exports[`Storyshots atoms/Button Button 1`] = `
-<button
-  className="css-ga5h9u-Button"
-  onClick={[Function]}
-  type="button"
->
-  ボタン
-</button>
+Object {
+  "rerender": [Function],
+  "result": Object {
+    "current": <Button
+      onClick={[Function]}
+    >
+      ボタン
+    </Button>,
+  },
+  "unmount": [Function],
+}
 `;

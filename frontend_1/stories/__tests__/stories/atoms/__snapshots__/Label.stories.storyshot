@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots atoms Label 1`] = `
-<span>
-  ラベル
-</span>
-`;
-
 exports[`Storyshots atoms/Label Label 1`] = `
-<span>
-  ラベル
-</span>
+Object {
+  "rerender": [Function],
+  "result": Object {
+    "current": <Label>
+      ラベル
+    </Label>,
+  },
+  "unmount": [Function],
+}
 `;

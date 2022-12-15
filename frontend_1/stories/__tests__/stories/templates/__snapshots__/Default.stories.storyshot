@@ -1,13 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots templates Default Layout 1`] = `
-<span>
-  aaaa
-</span>
-`;
-
 exports[`Storyshots templates/DefaultLayout Default Layout 1`] = `
-<span>
-  aaaa
-</span>
+Object {
+  "rerender": [Function],
+  "result": Object {
+    "current": <DefaultLayout>
+      <span>
+        aaaa
+      </span>
+    </DefaultLayout>,
+  },
+  "unmount": [Function],
+}
 `;

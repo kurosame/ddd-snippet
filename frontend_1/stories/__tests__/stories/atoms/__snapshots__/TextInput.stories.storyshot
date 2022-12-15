@@ -1,17 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots atoms Text Input 1`] = `
-<input
-  onChange={[Function]}
-  type="text"
-  value="default"
-/>
-`;
-
 exports[`Storyshots atoms/TextInput Text Input 1`] = `
-<input
-  onChange={[Function]}
-  type="text"
-  value="default"
-/>
+Object {
+  "rerender": [Function],
+  "result": Object {
+    "current": <TextInput
+      onChange={[Function]}
+      value="default"
+    />,
+  },
+  "unmount": [Function],
+}
 `;

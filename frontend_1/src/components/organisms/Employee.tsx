@@ -1,12 +1,11 @@
-import { useCallback, useContext, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { EmployeeFetchCommand } from '@/application/employee/command/EmployeeFetchCommand'
 import { EmployeeUpdateCommand } from '@/application/employee/command/EmployeeUpdateCommand'
 import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { fetchEmployees, updateEmployee } from '@/application/employee/usecase'
 import { Button } from '@/components/atoms/Button'
-import { SWRContext } from '@/components/hooks/swr'
+import { useAction } from '@/components/hooks/action'
 import { EmployeeTable } from '@/components/molecules/EmployeeTable'
 import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
 import { employeeState } from '@/store/employee'
@@ -15,11 +14,16 @@ export const Employee: React.FC = () => {
   const [employee, setEmployee] = useRecoilState(employeeState)
   const [company, setCompany] = useState<EmployeeUpdateCommand['company']>({ companyName: '' })
   const [employees, setEmployees] = useState<EmployeeDto[]>([])
-  const { cache, mutate } = useContext(SWRContext)
+
+  const fetchEmployeesAction = useAction(fetchEmployees)
+  const updateEmployeeAction = useAction(updateEmployee)
 
   const fetchToSetEmployees = useCallback(
-    () => fetchEmployees(new EmployeeFetchCommand(cache, mutate)).then(r => setEmployees(r)),
-    [cache, mutate]
+    () =>
+      fetchEmployeesAction().then(r => {
+        setEmployees(r)
+      }),
+    [fetchEmployeesAction]
   )
 
   useEffect(() => {
@@ -29,7 +33,7 @@ export const Employee: React.FC = () => {
   }, [fetchToSetEmployees])
 
   const handleClick = () => {
-    updateEmployee(new EmployeeUpdateCommand(employee, company, cache, mutate)).catch((e: Error) => {
+    updateEmployeeAction(new EmployeeUpdateCommand(employee, company)).catch((e: Error) => {
       console.error({ 'event-handler-error': e })
     })
   }

@@ -1,27 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots molecules Labeled Text Input 1`] = `
-Array [
-  <span>
-    ラベル
-  </span>,
-  <input
-    onChange={[Function]}
-    type="text"
-    value="default"
-  />,
-]
-`;
-
 exports[`Storyshots molecules/LabeledTextInput Labeled Text Input 1`] = `
-Array [
-  <span>
-    ラベル
-  </span>,
-  <input
-    onChange={[Function]}
-    type="text"
-    value="default"
-  />,
-]
+Object {
+  "rerender": [Function],
+  "result": Object {
+    "current": <LabeledTextInput
+      label="ラベル"
+      onChange={[Function]}
+      value="default"
+    />,
+  },
+  "unmount": [Function],
+}
 `;
