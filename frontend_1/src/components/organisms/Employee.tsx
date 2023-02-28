@@ -6,8 +6,8 @@ import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { fetchEmployees, updateEmployee } from '@/application/employee/usecase'
 import { Button } from '@/components/atoms/Button'
 import { useAction } from '@/components/hooks/action'
-import { EmployeeTable } from '@/components/molecules/EmployeeTable'
 import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
+import { EmployeeTable } from '@/components/organisms/EmployeeTable'
 import { employeeState } from '@/store/employee'
 
 export const Employee: React.FC = () => {
