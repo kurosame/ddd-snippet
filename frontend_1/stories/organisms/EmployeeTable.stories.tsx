@@ -2,7 +2,7 @@ import type { EmployeeDto } from '@/application/employee/dto/EmployeeDto'
 import { EmployeeTable as App } from '@/components/organisms/EmployeeTable'
 
 export default {
-  title: 'molecules/EmployeeTable'
+  title: 'organisms/EmployeeTable'
 }
 
 const employees: EmployeeDto[] = [
