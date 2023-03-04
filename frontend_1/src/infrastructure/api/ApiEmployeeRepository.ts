@@ -1,6 +1,6 @@
 import { Employee } from '@/domain/entity/Employee'
 import type { EmployeeRepository } from '@/domain/repository/EmployeeRepository'
-import { SWRCache, type Cache, type Mutate } from '@/domain/repository/Repository'
+import { ApiRepository, SWRCache, type Cache, type Mutate } from '@/domain/repository/Repository'
 import type { EmployeeId } from '@/domain/vo/EmployeeId'
 import { get, isHaveResponse, put } from '@/infrastructure/api/fetcher'
 
@@ -11,7 +11,7 @@ type ApiEmployeeResponse = {
 
 const ENDPOINT = '/api/employee'
 
-export class ApiEmployeeRepository implements EmployeeRepository {
+export class ApiEmployeeRepository implements ApiRepository, EmployeeRepository {
   readonly swrCache: SWRCache
   readonly mutate: Mutate
 
