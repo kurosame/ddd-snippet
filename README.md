@@ -6,6 +6,11 @@
   - Scala
   - Cats
 
+## backend_2
+
+- Tactical DDD
+  - Go
+
 ## frontend_1
 
 - Atomic Design
