@@ -1,0 +1,22 @@
+{
+  "extends": "@tsconfig/strictest/tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "target": "esnext",
+    "module": "esnext",
+    "lib": [],
+    "allowJs": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": { "@/*": ["src/*"] },
+    "resolveJsonModule": true,
+    "plugins": [{ "name": "next" }]
+  },
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

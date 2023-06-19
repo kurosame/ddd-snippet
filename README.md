@@ -39,3 +39,11 @@
   - Nuxt.js
   - Element Plus
 - Tactical DDD
+
+## frontend_5
+
+- [Bulletproof React](https://github.com/alan2207/bulletproof-react)
+  - React
+  - Next.js
+    - App Router
+  - Radix UI
