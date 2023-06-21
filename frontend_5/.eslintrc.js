@@ -24,7 +24,7 @@ module.exports = {
         groups: ['builtin', 'external', 'internal', 'unknown'],
         pathGroups: [
           {
-            pattern: '{@chakra-ui,@storybook}/**',
+            pattern: '{a}/**',
             group: 'external',
             position: 'after'
           }

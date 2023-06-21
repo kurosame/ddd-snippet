@@ -4,7 +4,7 @@
     "incremental": false,
     "target": "esnext",
     "module": "esnext",
-    "lib": [],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "jsx": "preserve",
     "sourceMap": true,

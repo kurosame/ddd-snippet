@@ -46,4 +46,3 @@
   - React
   - Next.js
     - App Router
-  - Radix UI
