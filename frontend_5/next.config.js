@@ -1,2 +1,9 @@
 /** @type {import('next').NextConfig} */
-module.exports = {}
+module.exports = {
+  env: {
+    API_URL: 'http://localhost:3000'
+  },
+  experimental: {
+    serverActions: true
+  }
+}

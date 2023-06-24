@@ -1,10 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { Button } from '@/components/atoms/Button'
 import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
+import { getEmployees } from '@/features/employee/api/employee'
 import { EmployeeTable } from '@/features/employee/components/EmployeeTable'
 import type { Employee as EmployeeType } from '@/features/employee/types'
 import { employeeState } from '@/store/employee'
@@ -12,6 +13,17 @@ import { employeeState } from '@/store/employee'
 export const Employee: React.FC = () => {
   const [employee, setEmployee] = useRecoilState(employeeState)
   const [employees] = useState<EmployeeType[]>([])
+
+  useEffect(() => {
+    getEmployees()
+      .then(e => {
+        console.info({ e })
+      })
+      .catch((e: unknown) => {
+        console.error({ e })
+      })
+  }, [])
+
   // const [employees, setEmployees] = useState<EmployeeType[]>([])
 
   // const fetchEmployeesAction = useAction(fetchEmployees)
