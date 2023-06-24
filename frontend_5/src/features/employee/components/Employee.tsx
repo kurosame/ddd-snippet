@@ -5,9 +5,8 @@ import { useRecoilState } from 'recoil'
 
 import { Button } from '@/components/atoms/Button'
 import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
-import { getEmployees } from '@/features/employee/api/employee'
-import { EmployeeTable } from '@/features/employee/components/EmployeeTable'
-import type { Employee as EmployeeType } from '@/features/employee/types'
+import type { Employee as EmployeeType } from '@/features/employee'
+import { EmployeeTable, getEmployees } from '@/features/employee'
 import { employeeState } from '@/store/employee'
 
 export const Employee: React.FC = () => {

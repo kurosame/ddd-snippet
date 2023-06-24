@@ -1,7 +1,7 @@
 import { Icon } from '@/components/atoms/Icon'
 import type { Columns, RowEl, Rows } from '@/components/atoms/Table'
 import { Table } from '@/components/atoms/Table'
-import type { Employee } from '@/features/employee/types'
+import type { Employee } from '@/features/employee'
 
 type Column = 'id' | 'employeeId' | 'employeeName'
 
