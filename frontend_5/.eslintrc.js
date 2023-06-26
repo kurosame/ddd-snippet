@@ -18,6 +18,7 @@ module.exports = {
     react: { version: 'detect' }
   },
   rules: {
+    '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
     'import/order': [
       'error',
       {

@@ -1,52 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { use, useMemo, useState } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { Button } from '@/components/atoms/Button'
 import { LabeledTextInput } from '@/components/molecules/LabeledTextInput'
 import type { Employee as EmployeeType } from '@/features/employee'
-import { EmployeeTable, getEmployees } from '@/features/employee'
+import { EmployeeTable, fetchEmployees, updateEmployee } from '@/features/employee'
 import { employeeState } from '@/store/employee'
 
 export const Employee: React.FC = () => {
   const [employee, setEmployee] = useRecoilState(employeeState)
-  const [employees] = useState<EmployeeType[]>([])
-
-  useEffect(() => {
-    getEmployees()
-      .then(e => {
-        console.info({ e })
-      })
-      .catch((e: unknown) => {
-        console.error({ e })
-      })
-  }, [])
-
-  // const [employees, setEmployees] = useState<EmployeeType[]>([])
-
-  // const fetchEmployeesAction = useAction(fetchEmployees)
-  // const updateEmployeeAction = useAction(updateEmployee)
-
-  // const fetchToSetEmployees = useCallback(
-  //   () =>
-  //     fetchEmployeesAction().then(r => {
-  //       setEmployees(r)
-  //     }),
-  //   [fetchEmployeesAction]
-  // )
-
-  // useEffect(() => {
-  //   fetchToSetEmployees().catch(e => {
-  //     throw e
-  //   })
-  // }, [fetchToSetEmployees])
-
-  // const handleClick = () => {
-  //   updateEmployeeAction(new EmployeeUpdateCommand(employee, company)).catch((e: Error) => {
-  //     console.error({ 'event-handler-error': e })
-  //   })
-  // }
+  const [employees, setEmployees] = useState<EmployeeType[]>(use(useMemo(fetchEmployees, [])))
 
   return (
     <>
@@ -60,10 +25,22 @@ export const Employee: React.FC = () => {
         value={employee.employeeName}
         onChange={v => setEmployee({ ...employee, employeeName: v })}
       />
-      <Button onClick={() => undefined}>登録</Button>
-      {/* <Button onClick={handleClick}>登録</Button> */}
-      <EmployeeTable {...{ employees, onSync: () => undefined }} />
-      {/* <EmployeeTable {...{ employees, onSync: fetchToSetEmployees }} /> */}
+      <Button
+        onClick={async () => {
+          await updateEmployee()
+          setEmployees(await fetchEmployees())
+        }}
+      >
+        登録
+      </Button>
+      <EmployeeTable
+        {...{
+          employees,
+          onSync: async () => {
+            setEmployees(await fetchEmployees())
+          }
+        }}
+      />
     </>
   )
 }

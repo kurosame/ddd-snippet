@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 
 export const runtime = 'nodejs'
 
@@ -17,3 +17,10 @@ export const GET = () =>
       employeeName: 'テストS太郎'
     }
   ])
+
+export const PUT = async (req: NextRequest) => {
+  const data = (await req.json()) as unknown
+  console.info(data)
+
+  return NextResponse.json('Update succeeded!')
+}

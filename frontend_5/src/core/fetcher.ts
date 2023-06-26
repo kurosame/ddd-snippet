@@ -1,5 +1,5 @@
 type FetchRequestOption = {
-  method: 'GET' | 'POST'
+  method: 'GET' | 'PUT'
   headers?: Record<string, string>
   data?: unknown
 }
@@ -15,7 +15,7 @@ const fetcher = async <T>(url: string, opt: FetchRequestOption): Promise<T> => {
       'Content-Type': 'application/json',
       ...opt.headers
     },
-    ...(opt.method === 'POST' && opt.data ? { body: JSON.stringify(opt.data) } : {})
+    ...(opt.method === 'PUT' && opt.data ? { body: JSON.stringify(opt.data) } : {})
   }).then((r): Promise<T> => {
     if (r.ok) return r.json()
     return r.json().then((e: ErrorResponse) => {
@@ -30,7 +30,7 @@ export const get = async <T>(url: string, opt: Omit<FetchRequestOption, 'method'
   return res
 }
 
-export const post = async <T>(url: string, opt: Omit<FetchRequestOption, 'method'>): Promise<T> => {
-  const res = await fetcher<T>(url, { method: 'POST', ...opt })
+export const put = async <T>(url: string, opt: Omit<FetchRequestOption, 'method'>): Promise<T> => {
+  const res = await fetcher<T>(url, { method: 'PUT', ...opt })
   return res
 }
